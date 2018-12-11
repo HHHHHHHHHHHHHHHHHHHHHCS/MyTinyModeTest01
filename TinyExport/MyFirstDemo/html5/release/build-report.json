@@ -1,0 +1,93 @@
+﻿{
+    "Item": {
+        "Name": "Project",
+        "Size": 0,
+        "CompressedSize": 0
+    },
+    "Children": [{
+        "Item": {
+            "Name": "Runtime",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/MyFirstDemo/html5/release/bin/runtime.js",
+                "Size": 726209,
+                "CompressedSize": 149684
+            }
+        }]
+    }, {
+        "Item": {
+            "Name": "Assets",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "JavaScript",
+                "Size": 2810,
+                "CompressedSize": 0
+            }
+        }, {
+            "Item": {
+                "Name": "sactx-128x128-DXT5-Atlas_1-32c7f675",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/Assets/sactx-128x128-DXT5-Atlas_1-32c7f675.png",
+                    "Size": 20520,
+                    "CompressedSize": 15553,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }]
+    }, {
+        "Item": {
+            "Name": "Code",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/MyFirstDemo/html5/release/bin/entities.js",
+                "Size": 6714,
+                "CompressedSize": 1423
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "Main",
+                    "Size": 6631,
+                    "CompressedSize": 1344
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/MyFirstDemo/html5/release/bin/bindings.js",
+                "Size": 93993,
+                "CompressedSize": 7823
+            }
+        }, {
+            "Item": {
+                "Name": "TinyExport/MyFirstDemo/html5/release/bin/code.js",
+                "Size": 12350,
+                "CompressedSize": 2811
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "H:\\MyUnity\\MyTinyModeTest01\\TinyExport\\MyFirstDemo\\html5\\release\\ScriptAssemblies\\tsc-emit.js",
+                    "Size": 12217,
+                    "CompressedSize": 2626
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/MyFirstDemo/html5/release/bin/main.js",
+                "Size": 7738,
+                "CompressedSize": 1499
+            }
+        }]
+    }]
+}

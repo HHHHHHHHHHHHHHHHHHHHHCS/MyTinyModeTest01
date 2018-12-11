@@ -1,0 +1,81 @@
+﻿[{
+    "$TypeId": 1,
+    "Id": "440e6c680dc84cf282e7a5e6a18cc063",
+    "Name": "MyAirplane",
+    "ExportFlags": 0,
+    "SerializedVersion": 6,
+    "Settings": {
+        "CanvasWidth": 750,
+        "CanvasHeight": 1334,
+        "EmbedAssets": true,
+        "CanvasAutoResize": false,
+        "RenderMode": 0,
+        "DefaultTextureSettings": {
+            "$TypeId": 2,
+            "Embedded": true,
+            "FormatType": 0,
+            "JpgCompressionQuality": 75,
+            "WebPCompressionQuality": 60
+        },
+        "DefaultAudioClipSettings": {
+            "$TypeId": 3,
+            "Embedded": true
+        },
+        "DefaultAnimationClipSettings": {
+            "$TypeId": 4,
+            "Embedded": false
+        },
+        "LocalWSServerPort": 17700,
+        "LocalHTTPServerPort": 19050,
+        "SingleFileHtml": false,
+        "MemorySize": 16,
+        "IncludeWebPDecompressor": false,
+        "RunBabel": true,
+        "MinifyJavaScript": true,
+        "LinkToSource": true,
+        "SymbolsInReleaseBuild": false
+    },
+    "Module": { "Id": "36b2746670204513ac964fb18fb98575", "Name": "Main" },
+    "Configuration": { "$TypeId": 9, "Id": "037a7fd974c04915a63665a79a7fe0f5", "Name": "Configuration" }
+},
+{
+    "$TypeId": 2,
+    "Id": "36b2746670204513ac964fb18fb98575",
+    "Name": "Main",
+    "SerializedVersion": 1,
+    "ExportFlags": 0,
+    "Namespace": "game",
+    "Options": 4,
+    "Dependencies": [
+        { "Id": "30097418841f56d73400bf82ee859ac9", "Name": "UTiny.Core2D" },
+        { "Id": "29e5e02a3a0442beb9e6828c78a7ff91", "Name": "UTiny.EntityGroup" },
+        { "Id": "494f9eba840c1f117459611e605884b0", "Name": "UTiny.Core2DTypes" },
+        { "Id": "eae58004250dcd15a6c834b07677ca28", "Name": "UTiny.HTML" },
+        { "Id": "49644c1065ebcfd98885bfe5e77c8fc1", "Name": "UTiny.Image2D" },
+        { "Id": "8f3245ba92302e53e51e43514424d568", "Name": "UTiny.ImageLoadingHTML" },
+        { "Id": "229e8d5fce9cf6b511ca82c89f1b58eb", "Name": "UTiny.Sprite2D" },
+        { "Id": "2af0cd3b47a732bf738688ceab312689", "Name": "UTiny.Core" },
+        { "Id": "404877ed746affa8a6081ad8161dd8de", "Name": "UTiny.EditorExtensions" },
+        { "Id": "a1b50987659c653138795a8f4079fc10", "Name": "UTiny.Math" },
+        { "Id": "ce3f1bd7050540b70d450a606e226ea2", "Name": "UTiny.Shared" },
+        { "Id": "36f73ad23c8a63c53fa510f0621474f5", "Name": "UTiny.HitBox2D" },
+        { "Id": "36b2746670204513ac964fb18fb98575", "Name": "Main" }
+    ],
+    "StartupEntityGroup": { "Id": "cc52fe2e28f044bbaca610e73194b42f", "Name": "NewEntityGroup" }
+},
+{
+    "$TypeId": 5,
+    "Id": "037a7fd974c04915a63665a79a7fe0f5",
+    "Name": "Configuration",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "575fe161bc06950c954480d04c70c9ab", "Name": "DisplayInfo" },
+        "Properties": {
+            "width": 750,
+            "height": 1334,
+            "autoSizeToFrame": false
+        }
+    }]
+}]

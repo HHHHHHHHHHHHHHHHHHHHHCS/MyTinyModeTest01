@@ -1,0 +1,178 @@
+﻿[{
+    "$TypeId": 4,
+    "Id": "7e7c318824ec44cc830cae21f7bbd500",
+    "Name": "Main",
+    "ExportFlags": 0,
+    "SerializedVersion": 0,
+    "Entities": [
+        { "$TypeId": 9, "Id": "1a82b78b87ec4c9fa2816ea51c316c5c", "Name": "Camera" },
+        { "$TypeId": 9, "Id": "765d445683a74a1591fd74ff4d26b7bc", "Name": "One" },
+        { "$TypeId": 9, "Id": "ea168bf055794b0cb573fc7caf417f91", "Name": "Two" },
+        { "$TypeId": 9, "Id": "1b6780977983451cbe2f8f09fe76190d", "Name": "Three" }
+    ]
+},
+{
+    "$TypeId": 5,
+    "Id": "1a82b78b87ec4c9fa2816ea51c316c5c",
+    "Name": "Camera",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
+        "Properties": {
+            "clearFlags": {
+                "$TypeId": 8,
+                "Type": { "Id": "76a06ddd38e99125d930e77c6a287872", "Name": "CameraClearFlags" },
+                "Id": "9faedc246f34513076701ef66b5ad74f",
+                "Name": "SolidColor",
+                "Value": 1
+            }
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "765d445683a74a1591fd74ff4d26b7bc",
+    "Name": "One",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": 1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "f4575a88147718749899d850d9a1a969", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "4990a4a4cbfa471c81aefa89dd543524", "Name": "Thing" },
+        "Properties": {
+            "radius": 1,
+            "speed": 0.1
+        }
+    }, {
+        "Type": { "Id": "72e542977241436db6266736faa5c1a0", "Name": "Movement" },
+        "Properties": {
+            "speed": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "x": 1,
+                    "y": 1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "0c8220d321bc4dd492e3270d942f002e", "Name": "SpeedBoost" },
+        "Properties": {
+            "multiplier": 1
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "ea168bf055794b0cb573fc7caf417f91",
+    "Name": "Two",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": 0
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "0ac6e2d375aabf947906ff999614d309", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "4990a4a4cbfa471c81aefa89dd543524", "Name": "Thing" },
+        "Properties": {
+            "radius": 2,
+            "speed": 0.2
+        }
+    }, {
+        "Type": { "Id": "72e542977241436db6266736faa5c1a0", "Name": "Movement" },
+        "Properties": {
+            "speed": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "x": 1,
+                    "y": 0
+                }
+            }
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "1b6780977983451cbe2f8f09fe76190d",
+    "Name": "Three",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": -1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "f60a21f3b038cf647b9838444b2c8f88", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "4990a4a4cbfa471c81aefa89dd543524", "Name": "Thing" },
+        "Properties": {
+            "radius": 3,
+            "speed": 0.3
+        }
+    }, {
+        "Type": { "Id": "eb86d0127748415184770cc9ba1b7c60", "Name": "Counter" }
+    }]
+}]

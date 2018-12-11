@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "0c8220d321bc4dd492e3270d942f002e",
+    "Name": "SpeedBoost",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "84e33b93e800456a879fecc27e46a8ce",
+        "Name": "multiplier",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "0c8220d321bc4dd492e3270d942f002e", "Name": "SpeedBoost" }
+    }
+}]

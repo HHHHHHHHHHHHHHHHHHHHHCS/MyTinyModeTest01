@@ -1,0 +1,31 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "4990a4a4cbfa471c81aefa89dd543524",
+    "Name": "Thing",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "a464b7c66cbd4d428c544b6796cfa38c",
+        "Name": "radius",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "593f3fe8031e468982d8648e0ee48f22",
+        "Name": "time",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "a0cdc59e002147568b450c2997f79fa7",
+        "Name": "speed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "4990a4a4cbfa471c81aefa89dd543524", "Name": "Thing" }
+    }
+}]

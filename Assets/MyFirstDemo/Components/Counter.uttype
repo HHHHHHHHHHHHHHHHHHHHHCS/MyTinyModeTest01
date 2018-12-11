@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "eb86d0127748415184770cc9ba1b7c60",
+    "Name": "Counter",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "fa34c4658b9e45e3a3d4c245d5e6d886",
+        "Name": "frame",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "eb86d0127748415184770cc9ba1b7c60", "Name": "Counter" }
+    }
+}]

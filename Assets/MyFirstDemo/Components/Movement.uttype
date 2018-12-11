@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "72e542977241436db6266736faa5c1a0",
+    "Name": "Movement",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "2c78ccd68f1d4308b09a3cce48f53445",
+        "Name": "speed",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "72e542977241436db6266736faa5c1a0", "Name": "Movement" }
+    }
+}]

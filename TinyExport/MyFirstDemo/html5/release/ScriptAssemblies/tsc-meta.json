@@ -1,0 +1,333 @@
+{
+    "Success": true,
+    "Diagnostics": [],
+    "Systems": [
+        {
+            "Name": "CircleMovement",
+            "QualifiedName": "game.CircleMovement",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/CircleMovement.ts",
+                "Line": 4,
+                "Character": 14
+            }
+        },
+        {
+            "Name": "InputSystem",
+            "QualifiedName": "game.InputSystem",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/InputSystem.ts",
+                "Line": 6,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.InputFence"
+            ]
+        },
+        {
+            "Name": "LogPosition",
+            "QualifiedName": "game.LogPosition",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/LogPosition.ts",
+                "Line": 5,
+                "Character": 14
+            }
+        },
+        {
+            "Name": "MovementSystem",
+            "QualifiedName": "game.MovementSystem",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                "Line": 13,
+                "Character": 14
+            }
+        }
+    ],
+    "Filters": [
+        {
+            "Name": "FrameCounterFilter",
+            "QualifiedName": "game.FrameCounterFilter",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+                "Line": 4,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "entity",
+                    "QualifiedName": "ut.Entity",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+                        "Line": 4,
+                        "Character": 59
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "counter",
+                    "QualifiedName": "game.Counter",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+                        "Line": 5,
+                        "Character": 20
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                }
+            ]
+        },
+        {
+            "Name": "MoveBeFilter",
+            "QualifiedName": "game.MoveBeFilter",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                "Line": 4,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "node",
+                    "QualifiedName": "ut.Core2D.TransformNode",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                        "Line": 4,
+                        "Character": 53
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "position",
+                    "QualifiedName": "ut.Core2D.TransformLocalPosition",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                        "Line": 5,
+                        "Character": 33
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": true,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "rotation",
+                    "QualifiedName": "ut.Core2D.TransformLocalRotation",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                        "Line": 6,
+                        "Character": 47
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": true,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "scale",
+                    "QualifiedName": "ut.Core2D.TransformLocalScale",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                        "Line": 7,
+                        "Character": 47
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": true,
+                    "IsPublic": true
+                }
+            ]
+        },
+        {
+            "Name": "MovementFilter",
+            "QualifiedName": "game.MovementFilter",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                "Line": 4,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "node",
+                    "QualifiedName": "ut.Core2D.TransformNode",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                        "Line": 4,
+                        "Character": 55
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "position",
+                    "QualifiedName": "ut.Core2D.TransformLocalPosition",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                        "Line": 5,
+                        "Character": 32
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "Movement",
+                    "QualifiedName": "game.Movement",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                        "Line": 6,
+                        "Character": 45
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "SpeedBoost",
+                    "QualifiedName": "game.SpeedBoost",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+                        "Line": 7,
+                        "Character": 26
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": true,
+                    "IsPublic": true
+                }
+            ]
+        }
+    ],
+    "Behaviours": [
+        {
+            "Name": "FrameCounter",
+            "QualifiedName": "game.FrameCounter",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+                "Line": 9,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "data",
+                    "QualifiedName": "game.FrameCounterFilter",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+                        "Line": 9,
+                        "Character": 59
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                }
+            ],
+            "Methods": [
+                "OnEntityEnable",
+                "OnEntityUpdate",
+                "OnEntityDisable"
+            ]
+        },
+        {
+            "Name": "MoveBe",
+            "QualifiedName": "game.MoveBe",
+            "Description": "",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                "Line": 11,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "test",
+                    "QualifiedName": "game.MoveBeFilter",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+                        "Line": 11,
+                        "Character": 53
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                }
+            ],
+            "Methods": [
+                "OnEntityEnable"
+            ]
+        }
+    ],
+    "Performance": [
+        {
+            "Key": "tsconfig",
+            "Description": "Time taken to read and parse the given tsconfig.json file",
+            "Duration": 65,
+            "Steps": 1
+        },
+        {
+            "Key": "checksum",
+            "Description": "Time taken to compute the MD5 of all inputs",
+            "Duration": 283,
+            "Steps": 1
+        },
+        {
+            "Key": "compile",
+            "Description": "Time taken to compile the TypeScript program",
+            "Duration": 1858,
+            "Steps": 15
+        },
+        {
+            "Key": "emit",
+            "Description": "Time taken to generate and write the JavaScript output",
+            "Duration": 138,
+            "Steps": 2
+        },
+        {
+            "Key": "metadata",
+            "Description": "Time taken to reflect Tiny metadata from the compiled program",
+            "Duration": 16,
+            "Steps": 4
+        }
+    ],
+    "SourceFiles": [
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/CircleMovement.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/FrameCounter.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/InputSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/LogPosition.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MoveBe.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyFirstDemo/Scripts/MovementSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+    ],
+    "InputHash": "2e3d8bbcfda8acd66260abd737b6c361",
+    "GeneratedAt": "Mon Dec 10 2018 22:00:39 GMT+0800 (中国标准时间)"
+}
