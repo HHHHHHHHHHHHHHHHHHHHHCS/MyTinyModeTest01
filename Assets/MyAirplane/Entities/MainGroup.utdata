@@ -5,7 +5,6 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "8b727e7758af431ab8b35f057194f288", "Name": "Camera" },
         { "$TypeId": 9, "Id": "6882ff52a737448dab78b41822c79bad", "Name": "Background" },
         { "$TypeId": 9, "Id": "231c4c4e3a3045c88f2a38672f28c6a9", "Name": "Background_1" },
         { "$TypeId": 9, "Id": "e4b6d5f7bff64ee09f71f68b890e6623", "Name": "Background_2" },
@@ -14,38 +13,6 @@
         { "$TypeId": 9, "Id": "e4307e59c9a048e59de378ae66c17a6f", "Name": "EnemySpawner" },
         { "$TypeId": 9, "Id": "a99ce44e97b141258df4dd051362c820", "Name": "Player" }
     ]
-},
-{
-    "$TypeId": 5,
-    "Id": "8b727e7758af431ab8b35f057194f288",
-    "Name": "Camera",
-    "Enabled": true,
-    "Static": false,
-    "Layer": 0,
-    "Components": [{
-        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
-    }, {
-        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
-        "Properties": {
-            "backgroundColor": {
-                "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
-                "Properties": {
-                    "r": 0,
-                    "g": 0,
-                    "b": 0,
-                    "a": 1
-                }
-            },
-            "clearFlags": {
-                "$TypeId": 8,
-                "Type": { "Id": "76a06ddd38e99125d930e77c6a287872", "Name": "CameraClearFlags" },
-                "Id": "9faedc246f34513076701ef66b5ad74f",
-                "Name": "SolidColor",
-                "Value": 1
-            },
-            "depth": -1
-        }
-    }]
 },
 {
     "$TypeId": 5,
