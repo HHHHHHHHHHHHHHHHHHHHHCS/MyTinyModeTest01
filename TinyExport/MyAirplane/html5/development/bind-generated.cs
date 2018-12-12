@@ -92,6 +92,18 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct MoveWithInput : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct PlayerTag : UTiny.IComponentData
     {
 

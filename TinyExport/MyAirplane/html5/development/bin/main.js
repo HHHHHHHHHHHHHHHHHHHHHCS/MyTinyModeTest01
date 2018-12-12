@@ -20,16 +20,49 @@ ut.importModule(ut.Rendering);
 ut.importModule(ut.Core2D);
 ut.importModule(ut.HitBox2D);
 ut.main = function() {
+    game.PlayerMoveFilter._Components = [ut.Entity, 
+        ut.Core2D.TransformLocalPosition, game.MoveWithInput, game.Border, game.MoveSpeed
+    ];
+    game.PlayerMoveFilter.prototype.Read = function(world, entity) {
+        this.pos = world.getComponentData(entity, ut.Core2D.TransformLocalPosition);
+        this.input = world.getComponentData(entity, game.MoveWithInput);
+        this.border = world.getComponentData(entity, game.Border);
+        this.speed = world.getComponentData(entity, game.MoveSpeed);
+    };
+    game.PlayerMoveFilter.prototype.Reset = function() {
+        this.pos = undefined;
+        this.input = undefined;
+        this.border = undefined;
+        this.speed = undefined;
+    };
+    game.PlayerMoveFilter.prototype.Write = function(world, entity) {
+        world.setComponentData(entity, this.pos);
+        world.setComponentData(entity, this.input);
+        world.setComponentData(entity, this.border);
+        world.setComponentData(entity, this.speed);
+    };
+    game.PlayerMoveFilter.prototype.ForEach = function(world, callback) {
+        var _this = this;
+        world.forEach(this.constructor._Components, function($entity, pos, input, border, speed) {
+            _this.Read(world, $entity);
+            callback($entity);
+            if (world.exists($entity)) { _this.Write(world, $entity); }
+        });
+    };
     // Singleton world
     var world = new ut.World();
 
     // Schedule all systems
     var scheduler = world.scheduler();
+    game.InputMovementSystemJS.update = new game.InputMovementSystem()._MakeSystemFn();
+    game.TimeJS.update = new game.Time()._MakeSystemFn();
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
     scheduler.schedule(ut.Core2D.SequencePlayerSystem);
     scheduler.schedule(ut.HitBox2D.HitBox2DSystem);
     scheduler.schedule(ut.Shared.InputFence);
+    scheduler.schedule(game.InputMovementSystemJS);
+    scheduler.schedule(game.TimeJS);
     scheduler.schedule(ut.Shared.UserCodeStart);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Shared.RenderingFence);

@@ -53,6 +53,9 @@ namespace game
     {
         public float speed;
     }
+    public struct MoveWithInput : IComponentData
+    {
+    }
     public struct PlayerTag : IComponentData
     {
     }
@@ -194,4 +197,18 @@ namespace ut.EditorExtensions
 
 namespace ut.HitBox2D
 {
+}
+namespace game
+{
+    [UpdateAfter(typeof(UTiny.Shared.InputFence))]
+    public class InputMovementSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeStart))]
+    public class TimeJS : IComponentSystem
+    {
+    }
 }

@@ -128,6 +128,17 @@ declare namespace game{
         static _tempHeapPtr(v: MoveSpeed): number;
         static _dtorFn(v: MoveSpeed): void;
     }
+    class MoveWithInput extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: MoveWithInput): MoveWithInput;
+        static _toPtr(p: number, v: MoveWithInput): void;
+        static _tempHeapPtr(v: MoveWithInput): number;
+        static _dtorFn(v: MoveWithInput): void;
+    }
     class PlayerTag extends ut.Component {
         constructor();
         static readonly cid: number;

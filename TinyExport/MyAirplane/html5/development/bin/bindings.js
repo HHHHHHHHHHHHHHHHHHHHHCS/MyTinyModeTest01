@@ -397,6 +397,49 @@ game.MoveSpeed._typeDesc = (function() {
 Object.defineProperties(game.MoveSpeed, { cid: { configurable: true, get: function() { delete game.MoveSpeed.cid; var offsetsPtr = 0, offsetsCount = 0; return game.MoveSpeed.cid = Module._ut_component_register_cid_with_type(game.MoveSpeed._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.MoveSpeed.StorageView, { cid: { configurable: true, get: function() { return game.MoveSpeed.cid; } } });
 game.MoveSpeed.speed = { $ofs:0, $t:"float", $c:game.MoveSpeed };
+game.MoveWithInput = function() {
+};
+game.MoveWithInput.prototype = Object.create(null);
+game.MoveWithInput.prototype.constructor = game.MoveWithInput;
+Object.defineProperties(game.MoveWithInput.prototype, {
+});
+game.MoveWithInput._size = 1;
+game.MoveWithInput._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.MoveWithInput.prototype);
+  return v;
+};
+game.MoveWithInput._toPtr = function(ptr, v) {
+};
+game.MoveWithInput._toTempHeapPtr = function(ptr, v) {
+};
+game.MoveWithInput._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(1);
+  if (v) game.MoveWithInput._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.MoveWithInput.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.MoveWithInput.StorageView.prototype = Object.create(null);
+game.MoveWithInput.StorageView.prototype.constructor = game.MoveWithInput.StorageView;
+game.MoveWithInput._view = game.MoveWithInput.StorageView;
+game.MoveWithInput.StorageView._isSharedComp = game.MoveWithInput._isSharedComp = false;
+game.MoveWithInput.StorageView._fromPtr = game.MoveWithInput._fromPtr;
+game.MoveWithInput.StorageView._toPtr = game.MoveWithInput._toPtr;
+game.MoveWithInput.StorageView._tempHeapPtr = game.MoveWithInput._tempHeapPtr;
+game.MoveWithInput.StorageView._size = game.MoveWithInput._size;
+game.MoveWithInput.StorageView.prototype.$advance = function() {
+  this._ptr += 1;
+};
+Object.defineProperties(game.MoveWithInput.StorageView.prototype, {
+});
+game.MoveWithInput._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.MoveWithInput is a POD type, so a JavaScript side copy constructor game.MoveWithInput._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.MoveWithInput._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.MoveWithInput', 1, []);
+})();
+Object.defineProperties(game.MoveWithInput, { cid: { configurable: true, get: function() { delete game.MoveWithInput.cid; var offsetsPtr = 0, offsetsCount = 0; return game.MoveWithInput.cid = Module._ut_component_register_cid_with_type(game.MoveWithInput._typeDesc, 0, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.MoveWithInput.StorageView, { cid: { configurable: true, get: function() { return game.MoveWithInput.cid; } } });
 game.PlayerTag = function() {
 };
 game.PlayerTag.prototype = Object.create(null);
@@ -1526,6 +1569,14 @@ ut.EditorExtensions.EntityLayer._typeDesc = (function() {
 Object.defineProperties(ut.EditorExtensions.EntityLayer, { cid: { configurable: true, get: function() { delete ut.EditorExtensions.EntityLayer.cid; var offsetsPtr = 0, offsetsCount = 0; return ut.EditorExtensions.EntityLayer.cid = Module._ut_component_register_cid_with_type(ut.EditorExtensions.EntityLayer._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(ut.EditorExtensions.EntityLayer.StorageView, { cid: { configurable: true, get: function() { return ut.EditorExtensions.EntityLayer.cid; } } });
 ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExtensions.EntityLayer };
+game.InputMovementSystemJS = ut.System.define({
+  name: "game.InputMovementSystemJS"
+ ,updatesAfter: ["UTiny.Shared.InputFence"]
+});
+game.TimeJS = ut.System.define({
+  name: "game.TimeJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeStart"]
+});
 
 
 

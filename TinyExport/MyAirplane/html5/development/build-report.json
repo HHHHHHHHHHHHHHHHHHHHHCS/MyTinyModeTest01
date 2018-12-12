@@ -26,7 +26,7 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 6414,
+                "Size": 8999,
                 "CompressedSize": 0
             }
         }, {
@@ -59,6 +59,21 @@
                     "Object": { "$TypeId": 10, "Guid": "86f1b161443d017459d9da56dd2afb18", "FileId": 2800000, "Type": 3 }
                 }
             }]
+        }, {
+            "Item": {
+                "Name": "Assets/MyAirplane/Textures/background.png",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "b2e9a53ece3e84a4ab8a2daf9dbdeeaa", "FileId": 2800000, "Type": 3 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/Assets/background.png",
+                    "Size": 11928,
+                    "CompressedSize": 8883,
+                    "Object": { "$TypeId": 10, "Guid": "b2e9a53ece3e84a4ab8a2daf9dbdeeaa", "FileId": 2800000, "Type": 3 }
+                }
+            }]
         }]
     }, {
         "Item": {
@@ -69,33 +84,33 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/MyAirplane/html5/development/bin/entities.js",
-                "Size": 7941,
-                "CompressedSize": 1268
+                "Size": 16064,
+                "CompressedSize": 2563
             },
             "Children": [{
                 "Item": {
                     "Name": "EffectGroup",
-                    "Size": 2363,
-                    "CompressedSize": 644
+                    "Size": 2487,
+                    "CompressedSize": 675
                 }
             }, {
                 "Item": {
                     "Name": "EnemyGroup",
-                    "Size": 2090,
-                    "CompressedSize": 703
+                    "Size": 2211,
+                    "CompressedSize": 726
                 }
             }, {
                 "Item": {
                     "Name": "MainGroup",
-                    "Size": 3410,
-                    "CompressedSize": 919
+                    "Size": 11288,
+                    "CompressedSize": 2094
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/MyAirplane/html5/development/bin/bindings.js",
-                "Size": 94779,
-                "CompressedSize": 7487
+                "Size": 97265,
+                "CompressedSize": 7766
             }
         }, {
             "Item": {
@@ -106,15 +121,15 @@
             "Children": [{
                 "Item": {
                     "Name": "H:\\MyUnity\\MyTinyModeTest01\\TinyExport\\MyAirplane\\html5\\development\\ScriptAssemblies\\tsc-emit.js",
-                    "Size": 3168,
-                    "CompressedSize": 927
+                    "Size": 10292,
+                    "CompressedSize": 2463
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/MyAirplane/html5/development/bin/main.js",
-                "Size": 2182,
-                "CompressedSize": 754
+                "Size": 3806,
+                "CompressedSize": 1121
             }
         }, {
             "Item": {

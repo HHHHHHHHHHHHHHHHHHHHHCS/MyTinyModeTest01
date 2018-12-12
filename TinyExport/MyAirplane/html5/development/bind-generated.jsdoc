@@ -80,6 +80,12 @@
 
 @component
 @memberof game
+@name MoveWithInput
+*/
+/**
+
+@component
+@memberof game
 @name PlayerTag
 */
 /**
@@ -315,6 +321,18 @@
 @member {int32}
 @memberof ut.EditorExtensions.EntityLayer
 @name layer
+*/
+/**
+
+@system
+@memberof game
+@name InputMovementSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name TimeJS
 */
 
 
