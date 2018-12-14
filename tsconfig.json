@@ -24,11 +24,12 @@
         "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.RendererGL/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.Sprite2D/**/*.ts",
         "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EditorExtensions/**/*.ts",
-        "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts"
+        "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.HitBox2D/**/*.ts",
+        "Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.Physics2D/**/*.ts"
     ],
     "exclude": [],
     "files": [
         "TinyExport/MyAirplane/html5/development/bind-generated.d.ts",
-        "Tiny/Dist/runtimedll/RuntimeStripped.d.ts"
+        "Tiny/Dist/runtimedll/RuntimeFull.d.ts"
     ]
 }

@@ -1,0 +1,38 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "aabf133b68054c85b60510414a902684",
+    "Name": "EnemySpawner",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "0ad4aa87deb74f20aca52d3b08554622",
+        "Name": "timer",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 1
+    }, {
+        "Id": "a7092a3e1b7b42bab6f4574b6e222b2b",
+        "Name": "delay",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "64dbd84ffac94d388766d4defa0dcdb3",
+        "Name": "isPaused",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "47d166e5888a41d884600732b24d093e",
+        "Name": "spawnGroup",
+        "FieldType": { "Id": "1bff5adddd7c41de98d3329c7c641208", "Name": "String" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "aabf133b68054c85b60510414a902684", "Name": "EnemySpawner" },
+        "Properties": {}
+    }
+}]

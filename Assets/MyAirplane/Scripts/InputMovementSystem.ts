@@ -8,9 +8,7 @@ namespace game {
 	}
 
 
-	/**
-	 * 飞机的移动
-	 */
+	/** 飞机的移动 */
 	@ut.executeAfter(ut.Shared.InputFence)
 	export class InputMovementSystem extends ut.ComponentSystem {
 

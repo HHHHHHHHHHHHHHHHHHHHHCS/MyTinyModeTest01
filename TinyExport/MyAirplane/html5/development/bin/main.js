@@ -19,6 +19,7 @@ ut.importModule(ut.Rendering);
 ut.importModule(ut.Rendering);
 ut.importModule(ut.Core2D);
 ut.importModule(ut.HitBox2D);
+ut.importModule(ut.Physics2D);
 ut.main = function() {
     game.PlayerMoveFilter._Components = [ut.Entity, 
         ut.Core2D.TransformLocalPosition, game.MoveWithInput, game.Border, game.MoveSpeed
@@ -55,6 +56,8 @@ ut.main = function() {
     // Schedule all systems
     var scheduler = world.scheduler();
     game.InputMovementSystemJS.update = new game.InputMovementSystem()._MakeSystemFn();
+    game.ScrollingBgSystemJS.update = new game.ScrollingBgSystem()._MakeSystemFn();
+    game.SpawnEnemySystemJS.update = new game.SpawnEnemySystem()._MakeSystemFn();
     game.TimeJS.update = new game.Time()._MakeSystemFn();
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
@@ -62,6 +65,8 @@ ut.main = function() {
     scheduler.schedule(ut.HitBox2D.HitBox2DSystem);
     scheduler.schedule(ut.Shared.InputFence);
     scheduler.schedule(game.InputMovementSystemJS);
+    scheduler.schedule(game.ScrollingBgSystemJS);
+    scheduler.schedule(game.SpawnEnemySystemJS);
     scheduler.schedule(game.TimeJS);
     scheduler.schedule(ut.Shared.UserCodeStart);
     scheduler.schedule(ut.Shared.UserCodeEnd);
@@ -74,6 +79,7 @@ ut.main = function() {
     scheduler.schedule(ut.HTML.RendererHTMLSwitchable);
     scheduler.schedule(ut.Rendering.RendererCanvas);
     scheduler.schedule(ut.Rendering.RendererGLWebGL);
+    scheduler.schedule(ut.Physics2D.Physics2DSystem);
 
     // Initialize all configuration data
     var c0 = world.getConfigData(ut.Core2D.DisplayInfo);
@@ -81,6 +87,12 @@ ut.main = function() {
     c0.height = 1334;
     c0.renderMode = 0;
     world.setConfigData(c0);
+    var c1 = world.getConfigData(ut.Physics2D.Physics2DConfig);
+    var s0 = new ut.Math.Vector2();
+    s0.x = 0;
+    s0.y = -10;
+    c1.gravity = s0;
+    world.setConfigData(c1);
 
     // Create and initialize all resource entities
     UT_ASSETS_SETUP(world);

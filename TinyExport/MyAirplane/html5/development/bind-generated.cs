@@ -113,6 +113,37 @@ namespace game
 
     }
 }
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ScrollingBg : UTiny.IComponentData
+    {
+
+
+        public float speed;
+        public float threshold;
+        public float distance;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct EnemySpawner : UTiny.IComponentData
+    {
+
+
+        public float timer;
+        public float delay;
+        public bool isPaused;
+        public string spawnGroup;
+
+
+
+    }
+}
 namespace ut.Core2D.layers
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]

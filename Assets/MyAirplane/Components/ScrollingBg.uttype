@@ -1,0 +1,31 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "655a2be06d00457a93aca023db093089",
+    "Name": "ScrollingBg",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "da215208d7394060aa982cfe4191254d",
+        "Name": "speed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "a89f8aea39ed40aebc666bffd20ecebe",
+        "Name": "threshold",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "822bcc0b45294ecbae7aae510f96a407",
+        "Name": "distance",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "655a2be06d00457a93aca023db093089", "Name": "ScrollingBg" }
+    }
+}]

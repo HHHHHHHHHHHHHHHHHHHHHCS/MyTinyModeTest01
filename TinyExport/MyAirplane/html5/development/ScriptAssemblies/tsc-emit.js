@@ -19,6 +19,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var game;
 (function (game) {
+    /** 游戏管理 */
+    var GameService = /** @class */ (function () {
+        function GameService() {
+        }
+        GameService.Restart = function (world) {
+            var _this = this;
+            setTimeout(function () {
+                _this.NewGame(world);
+            }, 3000);
+        };
+        GameService.NewGame = function (world) {
+            game.Time.Reset();
+            ut.EntityGroup.destroyAll(world, this.mainGroup);
+            ut.EntityGroup.destroyAll(world, this.enemyGroup);
+            ut.EntityGroup.destroyAll(world, this.explosionGroup);
+            ut.EntityGroup.instantiate(world, this.mainGroup);
+        };
+        GameService.mainGroup = "game.MainGroup";
+        GameService.enemyGroup = "game.EnemyGroup";
+        GameService.explosionGroup = "game.ExplosionGroup";
+        return GameService;
+    }());
+    game.GameService = GameService;
+})(game || (game = {}));
+var game;
+(function (game) {
     var PlayerMoveFilter = /** @class */ (function (_super) {
         __extends(PlayerMoveFilter, _super);
         function PlayerMoveFilter() {
@@ -27,20 +53,19 @@ var game;
         return PlayerMoveFilter;
     }(ut.EntityFilter));
     game.PlayerMoveFilter = PlayerMoveFilter;
-    /**
-     * 飞机的移动
-     */
+    /** 飞机的移动 */
     var InputMovementSystem = /** @class */ (function (_super) {
         __extends(InputMovementSystem, _super);
         function InputMovementSystem() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.isAwake = true;
             _this.filter = new PlayerMoveFilter();
             return _this;
         }
         InputMovementSystem.prototype.OnUpdate = function () {
             var _this = this;
-            if (this.isOnce) {
-                this.isOnce = true;
+            if (this.isAwake) {
+                this.isAwake = false;
                 if (ut.Core2D.Input.isTouchSupported()) {
                     console.log("isTouchSupported():" + ut.Core2D.Input.isTouchSupported());
                 }
@@ -132,9 +157,58 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
-    /**
-     * 类似Unity 的Time API
-     */
+    /** 移动背景 */
+    var ScrollingBgSystem = /** @class */ (function (_super) {
+        __extends(ScrollingBgSystem, _super);
+        function ScrollingBgSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ScrollingBgSystem.prototype.OnUpdate = function () {
+            var dt = game.Time.DeltaTime();
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.ScrollingBg], function (pos, scrolling) {
+                var localPos = pos.position;
+                localPos.y -= scrolling.speed * dt;
+                if (localPos.y < scrolling.threshold) {
+                    localPos.y += scrolling.distance;
+                }
+                pos.position = localPos;
+            });
+        };
+        return ScrollingBgSystem;
+    }(ut.ComponentSystem));
+    game.ScrollingBgSystem = ScrollingBgSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** 创建敌人的系统 */
+    var SpawnEnemySystem = /** @class */ (function (_super) {
+        __extends(SpawnEnemySystem, _super);
+        function SpawnEnemySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SpawnEnemySystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.EnemySpawner], function (spawner) {
+                if (spawner.isPaused) {
+                    return;
+                }
+                var timer = spawner.timer;
+                var delay = spawner.delay;
+                timer -= game.Time.DeltaTime();
+                if (timer <= 0) {
+                    timer += delay;
+                    ut.EntityGroup.instantiate(_this.world, spawner.spawnGroup);
+                }
+                spawner.timer = timer;
+            });
+        };
+        return SpawnEnemySystem;
+    }(ut.ComponentSystem));
+    game.SpawnEnemySystem = SpawnEnemySystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** 类似Unity 的Time API */
     var Time = /** @class */ (function (_super) {
         __extends(Time, _super);
         function Time() {

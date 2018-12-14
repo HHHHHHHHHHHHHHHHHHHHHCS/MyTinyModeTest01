@@ -7,6 +7,7 @@ using UTiny.HTML;
 using UTiny.Rendering;
 using ut.EditorExtensions;
 using UTiny.HitBox2D;
+using UTiny.Physics2D;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -58,6 +59,19 @@ namespace game
     }
     public struct PlayerTag : IComponentData
     {
+    }
+    public struct ScrollingBg : IComponentData
+    {
+        public float speed;
+        public float threshold;
+        public float distance;
+    }
+    public struct EnemySpawner : IComponentData
+    {
+        public float timer;
+        public float delay;
+        public bool isPaused;
+        public string spawnGroup;
     }
 }
 
@@ -198,10 +212,26 @@ namespace ut.EditorExtensions
 namespace ut.HitBox2D
 {
 }
+
+namespace ut.Physics2D
+{
+}
 namespace game
 {
     [UpdateAfter(typeof(UTiny.Shared.InputFence))]
     public class InputMovementSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class ScrollingBgSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class SpawnEnemySystemJS : IComponentSystem
     {
     }
 }

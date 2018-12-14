@@ -8,7 +8,7 @@
             "Description": "飞机的移动",
             "Source": {
                 "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/InputMovementSystem.ts",
-                "Line": 15,
+                "Line": 13,
                 "Character": 14
             },
             "ExecuteAfter": [
@@ -16,12 +16,32 @@
             ]
         },
         {
+            "Name": "ScrollingBgSystem",
+            "QualifiedName": "game.ScrollingBgSystem",
+            "Description": "移动背景",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/ScrollingBgSystem.ts",
+                "Line": 4,
+                "Character": 14
+            }
+        },
+        {
+            "Name": "SpawnEnemySystem",
+            "QualifiedName": "game.SpawnEnemySystem",
+            "Description": "创建敌人的系统",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/SpawnEnemySystem.ts",
+                "Line": 5,
+                "Character": 14
+            }
+        },
+        {
             "Name": "Time",
             "QualifiedName": "game.Time",
             "Description": "类似Unity 的Time API",
             "Source": {
                 "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/Time.ts",
-                "Line": 8,
+                "Line": 6,
                 "Character": 14
             },
             "ExecuteBefore": [
@@ -104,40 +124,43 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 56,
+            "Duration": 49,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 151,
+            "Duration": 130,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 808,
-            "Steps": 11
+            "Duration": 692,
+            "Steps": 14
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 51,
+            "Duration": 62,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 7,
-            "Steps": 2
+            "Duration": 16,
+            "Steps": 4
         }
     ],
     "SourceFiles": [
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/GameService.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/InputMovementSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/ScrollingBgSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/SpawnEnemySystem.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/Time.ts",
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "28796b23ae44a0dd564aa68209ed9bd0",
-    "GeneratedAt": "Wed Dec 12 2018 20:37:23 GMT+0800 (中国标准时间)"
+    "InputHash": "e6b3dfe19cbafa46e80330cad6ce474c",
+    "GeneratedAt": "Fri Dec 14 2018 21:28:42 GMT+0800 (中国标准时间)"
 }

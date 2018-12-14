@@ -116,6 +116,21 @@ declare namespace game{
         static _tempHeapPtr(v: EnemeyTag): number;
         static _dtorFn(v: EnemeyTag): void;
     }
+    class EnemySpawner extends ut.Component {
+        constructor();
+        timer: number;
+        delay: number;
+        isPaused: boolean;
+        spawnGroup: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: EnemySpawner): EnemySpawner;
+        static _toPtr(p: number, v: EnemySpawner): void;
+        static _tempHeapPtr(v: EnemySpawner): number;
+        static _dtorFn(v: EnemySpawner): void;
+    }
     class MoveSpeed extends ut.Component {
         constructor();
         speed: number;
@@ -149,6 +164,20 @@ declare namespace game{
         static _toPtr(p: number, v: PlayerTag): void;
         static _tempHeapPtr(v: PlayerTag): number;
         static _dtorFn(v: PlayerTag): void;
+    }
+    class ScrollingBg extends ut.Component {
+        constructor();
+        speed: number;
+        threshold: number;
+        distance: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScrollingBg): ScrollingBg;
+        static _toPtr(p: number, v: ScrollingBg): void;
+        static _tempHeapPtr(v: ScrollingBg): number;
+        static _dtorFn(v: ScrollingBg): void;
     }
 }
 declare namespace ut{

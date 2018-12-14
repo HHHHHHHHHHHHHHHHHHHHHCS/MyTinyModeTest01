@@ -1,9 +1,7 @@
 
 namespace game {
 
-	/**
-	 * 类似Unity 的Time API
-	 */
+	/** 类似Unity 的Time API */
 	@ut.executeBefore(ut.Shared.UserCodeStart)
 	export class Time extends ut.ComponentSystem {
 		private static _deltaTime: number = 0;

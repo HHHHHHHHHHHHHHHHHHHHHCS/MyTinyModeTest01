@@ -91,6 +91,60 @@
 /**
 
 @component
+@memberof game
+@name ScrollingBg
+*/
+/**
+
+@member {float}
+@memberof game.ScrollingBg
+@name speed
+*/
+/**
+
+@member {float}
+@memberof game.ScrollingBg
+@name threshold
+*/
+/**
+
+@member {float}
+@memberof game.ScrollingBg
+@name distance
+*/
+/**
+
+@component
+@memberof game
+@name EnemySpawner
+*/
+/**
+
+@member {float}
+@memberof game.EnemySpawner
+@name timer
+*/
+/**
+
+@member {float}
+@memberof game.EnemySpawner
+@name delay
+*/
+/**
+
+@member {bool}
+@memberof game.EnemySpawner
+@name isPaused
+*/
+/**
+
+@member {string}
+@memberof game.EnemySpawner
+@name spawnGroup
+*/
+/**
+
+@component
 @memberof ut.Core2D.layers
 @name Default
 */
@@ -327,6 +381,18 @@
 @system
 @memberof game
 @name InputMovementSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name ScrollingBgSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name SpawnEnemySystemJS
 */
 /**
 

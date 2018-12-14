@@ -483,6 +483,202 @@ game.PlayerTag._typeDesc = (function() {
 })();
 Object.defineProperties(game.PlayerTag, { cid: { configurable: true, get: function() { delete game.PlayerTag.cid; var offsetsPtr = 0, offsetsCount = 0; return game.PlayerTag.cid = Module._ut_component_register_cid_with_type(game.PlayerTag._typeDesc, 0, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.PlayerTag.StorageView, { cid: { configurable: true, get: function() { return game.PlayerTag.cid; } } });
+game.ScrollingBg = function(arg0, arg1, arg2) {
+  this._speed = (+(arg0===undefined ? 0 : arg0));
+  this._threshold = (+(arg1===undefined ? 0 : arg1));
+  this._distance = (+(arg2===undefined ? 0 : arg2));
+};
+game.ScrollingBg.prototype = Object.create(null);
+game.ScrollingBg.prototype.constructor = game.ScrollingBg;
+Object.defineProperties(game.ScrollingBg.prototype, {
+  speed: {
+    get: function() { return this._speed; },
+    set: function(v) { this._speed = (+(v===undefined ? 0 : v)); },
+  },
+  threshold: {
+    get: function() { return this._threshold; },
+    set: function(v) { this._threshold = (+(v===undefined ? 0 : v)); },
+  },
+  distance: {
+    get: function() { return this._distance; },
+    set: function(v) { this._distance = (+(v===undefined ? 0 : v)); },
+  },
+});
+game.ScrollingBg._size = 12;
+game.ScrollingBg._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.ScrollingBg.prototype);
+  v._speed = HEAPF32[(ptr+0)>>2];
+  v._threshold = HEAPF32[(ptr+4)>>2];
+  v._distance = HEAPF32[(ptr+8)>>2];
+  return v;
+};
+game.ScrollingBg._toPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.speed;
+  HEAPF32[(ptr+4)>>2] = v.threshold;
+  HEAPF32[(ptr+8)>>2] = v.distance;
+};
+game.ScrollingBg._toTempHeapPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.speed;
+  HEAPF32[(ptr+4)>>2] = v.threshold;
+  HEAPF32[(ptr+8)>>2] = v.distance;
+};
+game.ScrollingBg._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(12);
+  if (v) game.ScrollingBg._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.ScrollingBg.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.ScrollingBg.StorageView.prototype = Object.create(null);
+game.ScrollingBg.StorageView.prototype.constructor = game.ScrollingBg.StorageView;
+game.ScrollingBg._view = game.ScrollingBg.StorageView;
+game.ScrollingBg.StorageView._isSharedComp = game.ScrollingBg._isSharedComp = false;
+game.ScrollingBg.StorageView._fromPtr = game.ScrollingBg._fromPtr;
+game.ScrollingBg.StorageView._toPtr = game.ScrollingBg._toPtr;
+game.ScrollingBg.StorageView._tempHeapPtr = game.ScrollingBg._tempHeapPtr;
+game.ScrollingBg.StorageView._size = game.ScrollingBg._size;
+game.ScrollingBg.StorageView.prototype.$advance = function() {
+  this._ptr += 12;
+};
+Object.defineProperties(game.ScrollingBg.StorageView.prototype, {
+  speed: {
+    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
+  },
+  threshold: {
+    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
+  },
+  distance: {
+    get: function() { return HEAPF32[(this._ptr+8)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+8)>>2] = v; },
+  },
+});
+game.ScrollingBg._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.ScrollingBg is a POD type, so a JavaScript side copy constructor game.ScrollingBg._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.ScrollingBg._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.ScrollingBg', 12, [
+    {name: 'speed', offset: 0, type: ut.meta.getType('float')},
+    {name: 'threshold', offset: 4, type: ut.meta.getType('float')},
+    {name: 'distance', offset: 8, type: ut.meta.getType('float')}
+  ]);
+})();
+Object.defineProperties(game.ScrollingBg, { cid: { configurable: true, get: function() { delete game.ScrollingBg.cid; var offsetsPtr = 0, offsetsCount = 0; return game.ScrollingBg.cid = Module._ut_component_register_cid_with_type(game.ScrollingBg._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.ScrollingBg.StorageView, { cid: { configurable: true, get: function() { return game.ScrollingBg.cid; } } });
+game.ScrollingBg.speed = { $ofs:0, $t:"float", $c:game.ScrollingBg };
+game.ScrollingBg.threshold = { $ofs:4, $t:"float", $c:game.ScrollingBg };
+game.ScrollingBg.distance = { $ofs:8, $t:"float", $c:game.ScrollingBg };
+game.EnemySpawner = function(arg0, arg1, arg2, arg3) {
+  this._timer = (+(arg0===undefined ? 0 : arg0));
+  this._delay = (+(arg1===undefined ? 0 : arg1));
+  this._isPaused = (arg2 ? true : false);
+  this._spawnGroup = (arg3 === undefined ? '' : arg3);
+};
+game.EnemySpawner.prototype = Object.create(null);
+game.EnemySpawner.prototype.constructor = game.EnemySpawner;
+Object.defineProperties(game.EnemySpawner.prototype, {
+  timer: {
+    get: function() { return this._timer; },
+    set: function(v) { this._timer = (+(v===undefined ? 0 : v)); },
+  },
+  delay: {
+    get: function() { return this._delay; },
+    set: function(v) { this._delay = (+(v===undefined ? 0 : v)); },
+  },
+  isPaused: {
+    get: function() { return this._isPaused; },
+    set: function(v) { this._isPaused = (v ? true : false); },
+  },
+  spawnGroup: {
+    get: function() { return this._spawnGroup; },
+    set: function(v) { this._spawnGroup = (v === undefined ? '' : v); },
+  },
+});
+game.EnemySpawner._size = 20;
+game.EnemySpawner._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.EnemySpawner.prototype);
+  v._timer = HEAPF32[(ptr+0)>>2];
+  v._delay = HEAPF32[(ptr+4)>>2];
+  v._isPaused = (HEAP8[ptr+8]?true:false);
+  v._spawnGroup = (Module._ut_nativestring_data(ptr+12) ? UTF8ToString(Module._ut_nativestring_data(ptr+12)) : "");
+  return v;
+};
+game.EnemySpawner._toPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delay;
+  HEAP8[ptr+8] = (v.isPaused)?1:0;
+  ut.newHeapNativeString(ptr+12, v.spawnGroup);
+};
+game.EnemySpawner._toTempHeapPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delay;
+  HEAP8[ptr+8] = (v.isPaused)?1:0;
+  ut.toExistingScratchNativeString(ptr+12, v.spawnGroup);
+};
+game.EnemySpawner._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(20);
+  if (v) game.EnemySpawner._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.EnemySpawner.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.EnemySpawner.StorageView.prototype = Object.create(null);
+game.EnemySpawner.StorageView.prototype.constructor = game.EnemySpawner.StorageView;
+game.EnemySpawner._view = game.EnemySpawner.StorageView;
+game.EnemySpawner.StorageView._isSharedComp = game.EnemySpawner._isSharedComp = false;
+game.EnemySpawner.StorageView._fromPtr = game.EnemySpawner._fromPtr;
+game.EnemySpawner.StorageView._toPtr = game.EnemySpawner._toPtr;
+game.EnemySpawner.StorageView._tempHeapPtr = game.EnemySpawner._tempHeapPtr;
+game.EnemySpawner.StorageView._size = game.EnemySpawner._size;
+game.EnemySpawner.StorageView.prototype.$advance = function() {
+  this._ptr += 20;
+};
+Object.defineProperties(game.EnemySpawner.StorageView.prototype, {
+  timer: {
+    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
+  },
+  delay: {
+    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
+  },
+  isPaused: {
+    get: function() { return (HEAP8[this._ptr+8]?true:false); },
+    set: function(v) { HEAP8[this._ptr+8] = (v)?1:0; },
+  },
+  spawnGroup: {
+    get: function() { return (Module._ut_nativestring_data(this._ptr+12) ? UTF8ToString(Module._ut_nativestring_data(this._ptr+12)) : ""); },
+    set: function(v) { ut.newHeapNativeString(this._ptr+12, v); },
+  },
+});
+game.EnemySpawner._dtorFn = function dtor(ptr) {
+  if (!ptr) return; 
+  Module._ut_nativestring_placement_delete(ptr + 12);
+};
+game.EnemySpawner._copyFn = function copy(src, dst) {
+  if (!src) throw 'copy function src ptr is null!';
+  if (!dst) throw 'copy function dst ptr is null!';
+  for(var i = 0; i < 4; ++i) HEAPU8[dst+0+i] = HEAPU8[src+0+i];
+  for(var i = 0; i < 4; ++i) HEAPU8[dst+4+i] = HEAPU8[src+4+i];
+  for(var i = 0; i < 1; ++i) HEAPU8[dst+8+i] = HEAPU8[src+8+i];
+  Module._ut_nativestring_copy_construct(dst + 12, src + 12);
+};
+game.EnemySpawner._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.EnemySpawner', 20, [
+    {name: 'timer', offset: 0, type: ut.meta.getType('float')},
+    {name: 'delay', offset: 4, type: ut.meta.getType('float')},
+    {name: 'isPaused', offset: 8, type: ut.meta.getType('bool')},
+    {name: 'spawnGroup', offset: 12, type: ut.meta.getType('string')}
+  ]);
+})();
+Object.defineProperties(game.EnemySpawner, { cid: { configurable: true, get: function() { delete game.EnemySpawner.cid; var offsetsPtr = 0, offsetsCount = 0; return game.EnemySpawner.cid = Module._ut_component_register_cid_with_type(game.EnemySpawner._typeDesc, 4, 0, offsetsPtr, offsetsCount, ut.DestructorFn._cb.token_for(game.EnemySpawner._dtorFn), ut.CopyFn._cb.token_for(game.EnemySpawner._copyFn)); } } });
+Object.defineProperties(game.EnemySpawner.StorageView, { cid: { configurable: true, get: function() { return game.EnemySpawner.cid; } } });
+game.EnemySpawner.timer = { $ofs:0, $t:"float", $c:game.EnemySpawner };
+game.EnemySpawner.delay = { $ofs:4, $t:"float", $c:game.EnemySpawner };
+game.EnemySpawner.isPaused = { $ofs:8, $t:"bool", $c:game.EnemySpawner };
+game.EnemySpawner.spawnGroup = { $ofs:12, $t:"System.String", $c:game.EnemySpawner };
 var ut = ut || {};
 ut.Core2D = ut.Core2D || {};
 ut.Core2D.layers = ut.Core2D.layers || {};
@@ -1572,6 +1768,12 @@ ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExte
 game.InputMovementSystemJS = ut.System.define({
   name: "game.InputMovementSystemJS"
  ,updatesAfter: ["UTiny.Shared.InputFence"]
+});
+game.ScrollingBgSystemJS = ut.System.define({
+  name: "game.ScrollingBgSystemJS"
+});
+game.SpawnEnemySystemJS = ut.System.define({
+  name: "game.SpawnEnemySystemJS"
 });
 game.TimeJS = ut.System.define({
   name: "game.TimeJS"
