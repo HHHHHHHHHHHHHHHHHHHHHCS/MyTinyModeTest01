@@ -50,6 +50,13 @@ namespace game
     public struct EnemeyTag : IComponentData
     {
     }
+    public struct EnemySpawner : IComponentData
+    {
+        public float timer;
+        public float delay;
+        public bool isPaused;
+        public string spawnGroup;
+    }
     public struct MoveSpeed : IComponentData
     {
         public float speed;
@@ -65,13 +72,6 @@ namespace game
         public float speed;
         public float threshold;
         public float distance;
-    }
-    public struct EnemySpawner : IComponentData
-    {
-        public float timer;
-        public float delay;
-        public bool isPaused;
-        public string spawnGroup;
     }
 }
 
@@ -218,8 +218,24 @@ namespace ut.Physics2D
 }
 namespace game
 {
+    public struct EnemyBehavior_State : IComponentData
+    {
+        public bool initialized;
+        public bool enabled;
+        public bool onEnableCalled;
+        public bool onDisableCalled;
+    }
+}
+namespace game
+{
     [UpdateAfter(typeof(UTiny.Shared.InputFence))]
     public class InputMovementSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class PlayerCollisionSystemJS : IComponentSystem
     {
     }
 }
@@ -239,6 +255,21 @@ namespace game
 {
     [UpdateBefore(typeof(UTiny.Shared.UserCodeStart))]
     public class TimeJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.InputFence))]
+    public class EnemyBehavior_OnEntityEnableJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class EnemyBehavior_OnEntityUpdateJS : IComponentSystem
     {
     }
 }

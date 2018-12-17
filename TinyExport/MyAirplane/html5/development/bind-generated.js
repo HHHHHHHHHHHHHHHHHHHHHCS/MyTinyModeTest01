@@ -339,6 +339,116 @@ game.EnemeyTag._typeDesc = (function() {
 })();
 Object.defineProperties(game.EnemeyTag, { cid: { configurable: true, get: function() { delete game.EnemeyTag.cid; var offsetsPtr = 0, offsetsCount = 0; return game.EnemeyTag.cid = Module._ut_component_register_cid_with_type(game.EnemeyTag._typeDesc, 0, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.EnemeyTag.StorageView, { cid: { configurable: true, get: function() { return game.EnemeyTag.cid; } } });
+game.EnemySpawner = function(arg0, arg1, arg2, arg3) {
+  this._timer = (+(arg0===undefined ? 0 : arg0));
+  this._delay = (+(arg1===undefined ? 0 : arg1));
+  this._isPaused = (arg2 ? true : false);
+  this._spawnGroup = (arg3 === undefined ? '' : arg3);
+};
+game.EnemySpawner.prototype = Object.create(null);
+game.EnemySpawner.prototype.constructor = game.EnemySpawner;
+Object.defineProperties(game.EnemySpawner.prototype, {
+  timer: {
+    get: function() { return this._timer; },
+    set: function(v) { this._timer = (+(v===undefined ? 0 : v)); },
+  },
+  delay: {
+    get: function() { return this._delay; },
+    set: function(v) { this._delay = (+(v===undefined ? 0 : v)); },
+  },
+  isPaused: {
+    get: function() { return this._isPaused; },
+    set: function(v) { this._isPaused = (v ? true : false); },
+  },
+  spawnGroup: {
+    get: function() { return this._spawnGroup; },
+    set: function(v) { this._spawnGroup = (v === undefined ? '' : v); },
+  },
+});
+game.EnemySpawner._size = 20;
+game.EnemySpawner._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.EnemySpawner.prototype);
+  v._timer = HEAPF32[(ptr+0)>>2];
+  v._delay = HEAPF32[(ptr+4)>>2];
+  v._isPaused = (HEAP8[ptr+8]?true:false);
+  v._spawnGroup = (Module._ut_nativestring_data(ptr+12) ? UTF8ToString(Module._ut_nativestring_data(ptr+12)) : "");
+  return v;
+};
+game.EnemySpawner._toPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delay;
+  HEAP8[ptr+8] = (v.isPaused)?1:0;
+  ut.newHeapNativeString(ptr+12, v.spawnGroup);
+};
+game.EnemySpawner._toTempHeapPtr = function(ptr, v) {
+  HEAPF32[(ptr+0)>>2] = v.timer;
+  HEAPF32[(ptr+4)>>2] = v.delay;
+  HEAP8[ptr+8] = (v.isPaused)?1:0;
+  ut.toExistingScratchNativeString(ptr+12, v.spawnGroup);
+};
+game.EnemySpawner._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(20);
+  if (v) game.EnemySpawner._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.EnemySpawner.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.EnemySpawner.StorageView.prototype = Object.create(null);
+game.EnemySpawner.StorageView.prototype.constructor = game.EnemySpawner.StorageView;
+game.EnemySpawner._view = game.EnemySpawner.StorageView;
+game.EnemySpawner.StorageView._isSharedComp = game.EnemySpawner._isSharedComp = false;
+game.EnemySpawner.StorageView._fromPtr = game.EnemySpawner._fromPtr;
+game.EnemySpawner.StorageView._toPtr = game.EnemySpawner._toPtr;
+game.EnemySpawner.StorageView._tempHeapPtr = game.EnemySpawner._tempHeapPtr;
+game.EnemySpawner.StorageView._size = game.EnemySpawner._size;
+game.EnemySpawner.StorageView.prototype.$advance = function() {
+  this._ptr += 20;
+};
+Object.defineProperties(game.EnemySpawner.StorageView.prototype, {
+  timer: {
+    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
+  },
+  delay: {
+    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
+  },
+  isPaused: {
+    get: function() { return (HEAP8[this._ptr+8]?true:false); },
+    set: function(v) { HEAP8[this._ptr+8] = (v)?1:0; },
+  },
+  spawnGroup: {
+    get: function() { return (Module._ut_nativestring_data(this._ptr+12) ? UTF8ToString(Module._ut_nativestring_data(this._ptr+12)) : ""); },
+    set: function(v) { ut.newHeapNativeString(this._ptr+12, v); },
+  },
+});
+game.EnemySpawner._dtorFn = function dtor(ptr) {
+  if (!ptr) return; 
+  Module._ut_nativestring_placement_delete(ptr + 12);
+};
+game.EnemySpawner._copyFn = function copy(src, dst) {
+  if (!src) throw 'copy function src ptr is null!';
+  if (!dst) throw 'copy function dst ptr is null!';
+  for(var i = 0; i < 4; ++i) HEAPU8[dst+0+i] = HEAPU8[src+0+i];
+  for(var i = 0; i < 4; ++i) HEAPU8[dst+4+i] = HEAPU8[src+4+i];
+  for(var i = 0; i < 1; ++i) HEAPU8[dst+8+i] = HEAPU8[src+8+i];
+  Module._ut_nativestring_copy_construct(dst + 12, src + 12);
+};
+game.EnemySpawner._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.EnemySpawner', 20, [
+    {name: 'timer', offset: 0, type: ut.meta.getType('float')},
+    {name: 'delay', offset: 4, type: ut.meta.getType('float')},
+    {name: 'isPaused', offset: 8, type: ut.meta.getType('bool')},
+    {name: 'spawnGroup', offset: 12, type: ut.meta.getType('string')}
+  ]);
+})();
+Object.defineProperties(game.EnemySpawner, { cid: { configurable: true, get: function() { delete game.EnemySpawner.cid; var offsetsPtr = 0, offsetsCount = 0; return game.EnemySpawner.cid = Module._ut_component_register_cid_with_type(game.EnemySpawner._typeDesc, 4, 0, offsetsPtr, offsetsCount, ut.DestructorFn._cb.token_for(game.EnemySpawner._dtorFn), ut.CopyFn._cb.token_for(game.EnemySpawner._copyFn)); } } });
+Object.defineProperties(game.EnemySpawner.StorageView, { cid: { configurable: true, get: function() { return game.EnemySpawner.cid; } } });
+game.EnemySpawner.timer = { $ofs:0, $t:"float", $c:game.EnemySpawner };
+game.EnemySpawner.delay = { $ofs:4, $t:"float", $c:game.EnemySpawner };
+game.EnemySpawner.isPaused = { $ofs:8, $t:"bool", $c:game.EnemySpawner };
+game.EnemySpawner.spawnGroup = { $ofs:12, $t:"System.String", $c:game.EnemySpawner };
 game.MoveSpeed = function(arg0) {
   this._speed = (+(arg0===undefined ? 0 : arg0));
 };
@@ -569,116 +679,6 @@ Object.defineProperties(game.ScrollingBg.StorageView, { cid: { configurable: tru
 game.ScrollingBg.speed = { $ofs:0, $t:"float", $c:game.ScrollingBg };
 game.ScrollingBg.threshold = { $ofs:4, $t:"float", $c:game.ScrollingBg };
 game.ScrollingBg.distance = { $ofs:8, $t:"float", $c:game.ScrollingBg };
-game.EnemySpawner = function(arg0, arg1, arg2, arg3) {
-  this._timer = (+(arg0===undefined ? 0 : arg0));
-  this._delay = (+(arg1===undefined ? 0 : arg1));
-  this._isPaused = (arg2 ? true : false);
-  this._spawnGroup = (arg3 === undefined ? '' : arg3);
-};
-game.EnemySpawner.prototype = Object.create(null);
-game.EnemySpawner.prototype.constructor = game.EnemySpawner;
-Object.defineProperties(game.EnemySpawner.prototype, {
-  timer: {
-    get: function() { return this._timer; },
-    set: function(v) { this._timer = (+(v===undefined ? 0 : v)); },
-  },
-  delay: {
-    get: function() { return this._delay; },
-    set: function(v) { this._delay = (+(v===undefined ? 0 : v)); },
-  },
-  isPaused: {
-    get: function() { return this._isPaused; },
-    set: function(v) { this._isPaused = (v ? true : false); },
-  },
-  spawnGroup: {
-    get: function() { return this._spawnGroup; },
-    set: function(v) { this._spawnGroup = (v === undefined ? '' : v); },
-  },
-});
-game.EnemySpawner._size = 20;
-game.EnemySpawner._fromPtr = function(ptr, v) {
-  v = v || Object.create(game.EnemySpawner.prototype);
-  v._timer = HEAPF32[(ptr+0)>>2];
-  v._delay = HEAPF32[(ptr+4)>>2];
-  v._isPaused = (HEAP8[ptr+8]?true:false);
-  v._spawnGroup = (Module._ut_nativestring_data(ptr+12) ? UTF8ToString(Module._ut_nativestring_data(ptr+12)) : "");
-  return v;
-};
-game.EnemySpawner._toPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.timer;
-  HEAPF32[(ptr+4)>>2] = v.delay;
-  HEAP8[ptr+8] = (v.isPaused)?1:0;
-  ut.newHeapNativeString(ptr+12, v.spawnGroup);
-};
-game.EnemySpawner._toTempHeapPtr = function(ptr, v) {
-  HEAPF32[(ptr+0)>>2] = v.timer;
-  HEAPF32[(ptr+4)>>2] = v.delay;
-  HEAP8[ptr+8] = (v.isPaused)?1:0;
-  ut.toExistingScratchNativeString(ptr+12, v.spawnGroup);
-};
-game.EnemySpawner._tempHeapPtr = function(v) {
-  var ptr = ut.tempHeapPtrBufferZero(20);
-  if (v) game.EnemySpawner._toTempHeapPtr(ptr, v);
-  return ptr;
-};
-game.EnemySpawner.StorageView = function(ptr) {
-  this._ptr = ptr;
-};
-game.EnemySpawner.StorageView.prototype = Object.create(null);
-game.EnemySpawner.StorageView.prototype.constructor = game.EnemySpawner.StorageView;
-game.EnemySpawner._view = game.EnemySpawner.StorageView;
-game.EnemySpawner.StorageView._isSharedComp = game.EnemySpawner._isSharedComp = false;
-game.EnemySpawner.StorageView._fromPtr = game.EnemySpawner._fromPtr;
-game.EnemySpawner.StorageView._toPtr = game.EnemySpawner._toPtr;
-game.EnemySpawner.StorageView._tempHeapPtr = game.EnemySpawner._tempHeapPtr;
-game.EnemySpawner.StorageView._size = game.EnemySpawner._size;
-game.EnemySpawner.StorageView.prototype.$advance = function() {
-  this._ptr += 20;
-};
-Object.defineProperties(game.EnemySpawner.StorageView.prototype, {
-  timer: {
-    get: function() { return HEAPF32[(this._ptr+0)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+0)>>2] = v; },
-  },
-  delay: {
-    get: function() { return HEAPF32[(this._ptr+4)>>2]; },
-    set: function(v) { HEAPF32[(this._ptr+4)>>2] = v; },
-  },
-  isPaused: {
-    get: function() { return (HEAP8[this._ptr+8]?true:false); },
-    set: function(v) { HEAP8[this._ptr+8] = (v)?1:0; },
-  },
-  spawnGroup: {
-    get: function() { return (Module._ut_nativestring_data(this._ptr+12) ? UTF8ToString(Module._ut_nativestring_data(this._ptr+12)) : ""); },
-    set: function(v) { ut.newHeapNativeString(this._ptr+12, v); },
-  },
-});
-game.EnemySpawner._dtorFn = function dtor(ptr) {
-  if (!ptr) return; 
-  Module._ut_nativestring_placement_delete(ptr + 12);
-};
-game.EnemySpawner._copyFn = function copy(src, dst) {
-  if (!src) throw 'copy function src ptr is null!';
-  if (!dst) throw 'copy function dst ptr is null!';
-  for(var i = 0; i < 4; ++i) HEAPU8[dst+0+i] = HEAPU8[src+0+i];
-  for(var i = 0; i < 4; ++i) HEAPU8[dst+4+i] = HEAPU8[src+4+i];
-  for(var i = 0; i < 1; ++i) HEAPU8[dst+8+i] = HEAPU8[src+8+i];
-  Module._ut_nativestring_copy_construct(dst + 12, src + 12);
-};
-game.EnemySpawner._typeDesc = (function() {
-  return ut.meta.allocType(5, 'game.EnemySpawner', 20, [
-    {name: 'timer', offset: 0, type: ut.meta.getType('float')},
-    {name: 'delay', offset: 4, type: ut.meta.getType('float')},
-    {name: 'isPaused', offset: 8, type: ut.meta.getType('bool')},
-    {name: 'spawnGroup', offset: 12, type: ut.meta.getType('string')}
-  ]);
-})();
-Object.defineProperties(game.EnemySpawner, { cid: { configurable: true, get: function() { delete game.EnemySpawner.cid; var offsetsPtr = 0, offsetsCount = 0; return game.EnemySpawner.cid = Module._ut_component_register_cid_with_type(game.EnemySpawner._typeDesc, 4, 0, offsetsPtr, offsetsCount, ut.DestructorFn._cb.token_for(game.EnemySpawner._dtorFn), ut.CopyFn._cb.token_for(game.EnemySpawner._copyFn)); } } });
-Object.defineProperties(game.EnemySpawner.StorageView, { cid: { configurable: true, get: function() { return game.EnemySpawner.cid; } } });
-game.EnemySpawner.timer = { $ofs:0, $t:"float", $c:game.EnemySpawner };
-game.EnemySpawner.delay = { $ofs:4, $t:"float", $c:game.EnemySpawner };
-game.EnemySpawner.isPaused = { $ofs:8, $t:"bool", $c:game.EnemySpawner };
-game.EnemySpawner.spawnGroup = { $ofs:12, $t:"System.String", $c:game.EnemySpawner };
 var ut = ut || {};
 ut.Core2D = ut.Core2D || {};
 ut.Core2D.layers = ut.Core2D.layers || {};
@@ -1765,9 +1765,112 @@ ut.EditorExtensions.EntityLayer._typeDesc = (function() {
 Object.defineProperties(ut.EditorExtensions.EntityLayer, { cid: { configurable: true, get: function() { delete ut.EditorExtensions.EntityLayer.cid; var offsetsPtr = 0, offsetsCount = 0; return ut.EditorExtensions.EntityLayer.cid = Module._ut_component_register_cid_with_type(ut.EditorExtensions.EntityLayer._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(ut.EditorExtensions.EntityLayer.StorageView, { cid: { configurable: true, get: function() { return ut.EditorExtensions.EntityLayer.cid; } } });
 ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExtensions.EntityLayer };
+game.EnemyBehavior_State = function(arg0, arg1, arg2, arg3) {
+  this._initialized = (arg0 ? true : false);
+  this._enabled = (arg1 ? true : false);
+  this._onEnableCalled = (arg2 ? true : false);
+  this._onDisableCalled = (arg3 ? true : false);
+};
+game.EnemyBehavior_State.prototype = Object.create(null);
+game.EnemyBehavior_State.prototype.constructor = game.EnemyBehavior_State;
+Object.defineProperties(game.EnemyBehavior_State.prototype, {
+  initialized: {
+    get: function() { return this._initialized; },
+    set: function(v) { this._initialized = (v ? true : false); },
+  },
+  enabled: {
+    get: function() { return this._enabled; },
+    set: function(v) { this._enabled = (v ? true : false); },
+  },
+  onEnableCalled: {
+    get: function() { return this._onEnableCalled; },
+    set: function(v) { this._onEnableCalled = (v ? true : false); },
+  },
+  onDisableCalled: {
+    get: function() { return this._onDisableCalled; },
+    set: function(v) { this._onDisableCalled = (v ? true : false); },
+  },
+});
+game.EnemyBehavior_State._size = 4;
+game.EnemyBehavior_State._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.EnemyBehavior_State.prototype);
+  v._initialized = (HEAP8[ptr+0]?true:false);
+  v._enabled = (HEAP8[ptr+1]?true:false);
+  v._onEnableCalled = (HEAP8[ptr+2]?true:false);
+  v._onDisableCalled = (HEAP8[ptr+3]?true:false);
+  return v;
+};
+game.EnemyBehavior_State._toPtr = function(ptr, v) {
+  HEAP8[ptr+0] = (v.initialized)?1:0;
+  HEAP8[ptr+1] = (v.enabled)?1:0;
+  HEAP8[ptr+2] = (v.onEnableCalled)?1:0;
+  HEAP8[ptr+3] = (v.onDisableCalled)?1:0;
+};
+game.EnemyBehavior_State._toTempHeapPtr = function(ptr, v) {
+  HEAP8[ptr+0] = (v.initialized)?1:0;
+  HEAP8[ptr+1] = (v.enabled)?1:0;
+  HEAP8[ptr+2] = (v.onEnableCalled)?1:0;
+  HEAP8[ptr+3] = (v.onDisableCalled)?1:0;
+};
+game.EnemyBehavior_State._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(4);
+  if (v) game.EnemyBehavior_State._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.EnemyBehavior_State.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.EnemyBehavior_State.StorageView.prototype = Object.create(null);
+game.EnemyBehavior_State.StorageView.prototype.constructor = game.EnemyBehavior_State.StorageView;
+game.EnemyBehavior_State._view = game.EnemyBehavior_State.StorageView;
+game.EnemyBehavior_State.StorageView._isSharedComp = game.EnemyBehavior_State._isSharedComp = false;
+game.EnemyBehavior_State.StorageView._fromPtr = game.EnemyBehavior_State._fromPtr;
+game.EnemyBehavior_State.StorageView._toPtr = game.EnemyBehavior_State._toPtr;
+game.EnemyBehavior_State.StorageView._tempHeapPtr = game.EnemyBehavior_State._tempHeapPtr;
+game.EnemyBehavior_State.StorageView._size = game.EnemyBehavior_State._size;
+game.EnemyBehavior_State.StorageView.prototype.$advance = function() {
+  this._ptr += 4;
+};
+Object.defineProperties(game.EnemyBehavior_State.StorageView.prototype, {
+  initialized: {
+    get: function() { return (HEAP8[this._ptr+0]?true:false); },
+    set: function(v) { HEAP8[this._ptr+0] = (v)?1:0; },
+  },
+  enabled: {
+    get: function() { return (HEAP8[this._ptr+1]?true:false); },
+    set: function(v) { HEAP8[this._ptr+1] = (v)?1:0; },
+  },
+  onEnableCalled: {
+    get: function() { return (HEAP8[this._ptr+2]?true:false); },
+    set: function(v) { HEAP8[this._ptr+2] = (v)?1:0; },
+  },
+  onDisableCalled: {
+    get: function() { return (HEAP8[this._ptr+3]?true:false); },
+    set: function(v) { HEAP8[this._ptr+3] = (v)?1:0; },
+  },
+});
+game.EnemyBehavior_State._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.EnemyBehavior_State is a POD type, so a JavaScript side copy constructor game.EnemyBehavior_State._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.EnemyBehavior_State._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.EnemyBehavior_State', 4, [
+    {name: 'initialized', offset: 0, type: ut.meta.getType('bool')},
+    {name: 'enabled', offset: 1, type: ut.meta.getType('bool')},
+    {name: 'onEnableCalled', offset: 2, type: ut.meta.getType('bool')},
+    {name: 'onDisableCalled', offset: 3, type: ut.meta.getType('bool')}
+  ]);
+})();
+Object.defineProperties(game.EnemyBehavior_State, { cid: { configurable: true, get: function() { delete game.EnemyBehavior_State.cid; var offsetsPtr = 0, offsetsCount = 0; return game.EnemyBehavior_State.cid = Module._ut_component_register_cid_with_type(game.EnemyBehavior_State._typeDesc, 1, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.EnemyBehavior_State.StorageView, { cid: { configurable: true, get: function() { return game.EnemyBehavior_State.cid; } } });
+game.EnemyBehavior_State.initialized = { $ofs:0, $t:"bool", $c:game.EnemyBehavior_State };
+game.EnemyBehavior_State.enabled = { $ofs:1, $t:"bool", $c:game.EnemyBehavior_State };
+game.EnemyBehavior_State.onEnableCalled = { $ofs:2, $t:"bool", $c:game.EnemyBehavior_State };
+game.EnemyBehavior_State.onDisableCalled = { $ofs:3, $t:"bool", $c:game.EnemyBehavior_State };
 game.InputMovementSystemJS = ut.System.define({
   name: "game.InputMovementSystemJS"
  ,updatesAfter: ["UTiny.Shared.InputFence"]
+});
+game.PlayerCollisionSystemJS = ut.System.define({
+  name: "game.PlayerCollisionSystemJS"
 });
 game.ScrollingBgSystemJS = ut.System.define({
   name: "game.ScrollingBgSystemJS"
@@ -1778,6 +1881,15 @@ game.SpawnEnemySystemJS = ut.System.define({
 game.TimeJS = ut.System.define({
   name: "game.TimeJS"
  ,updatesBefore: ["UTiny.Shared.UserCodeStart"]
+});
+game.EnemyBehavior_OnEntityEnableJS = ut.System.define({
+  name: "game.EnemyBehavior_OnEntityEnableJS"
+ ,updatesBefore: ["UTiny.Shared.InputFence"]
+});
+game.EnemyBehavior_OnEntityUpdateJS = ut.System.define({
+  name: "game.EnemyBehavior_OnEntityUpdateJS"
+ ,updatesBefore: ["UTiny.Shared.UserCodeEnd"]
+ ,updatesAfter: ["UTiny.Shared.UserCodeStart"]
 });
 
 

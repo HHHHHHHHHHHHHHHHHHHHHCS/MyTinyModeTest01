@@ -16,6 +16,16 @@
             ]
         },
         {
+            "Name": "PlayerCollisionSystem",
+            "QualifiedName": "game.PlayerCollisionSystem",
+            "Description": "玩家的碰撞事件",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/PlayerCollisionSystem.ts",
+                "Line": 4,
+                "Character": 14
+            }
+        },
+        {
             "Name": "ScrollingBgSystem",
             "QualifiedName": "game.ScrollingBgSystem",
             "Description": "移动背景",
@@ -50,6 +60,102 @@
         }
     ],
     "Filters": [
+        {
+            "Name": "EnemyBehaviorFilter",
+            "QualifiedName": "game.EnemyBehaviorFilter",
+            "Description": "敌人的筛选器",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                "Line": 3,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "entity",
+                    "QualifiedName": "ut.Entity",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 3,
+                        "Character": 60
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "tag",
+                    "QualifiedName": "game.EnemeyTag",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 4,
+                        "Character": 20
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "position",
+                    "QualifiedName": "ut.Core2D.TransformLocalPosition",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 5,
+                        "Character": 22
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "speed",
+                    "QualifiedName": "game.MoveSpeed",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 6,
+                        "Character": 45
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "speedChange",
+                    "QualifiedName": "game.ChangeOverTime",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 7,
+                        "Character": 24
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                },
+                {
+                    "Name": "bounds",
+                    "QualifiedName": "game.Border",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 8,
+                        "Character": 35
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                }
+            ]
+        },
         {
             "Name": "PlayerMoveFilter",
             "QualifiedName": "game.PlayerMoveFilter",
@@ -119,48 +225,82 @@
             ]
         }
     ],
-    "Behaviours": [],
+    "Behaviours": [
+        {
+            "Name": "EnemyBehavior",
+            "QualifiedName": "game.EnemyBehavior",
+            "Description": "敌人的逻辑",
+            "Source": {
+                "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                "Line": 13,
+                "Character": 14
+            },
+            "Fields": [
+                {
+                    "Name": "data",
+                    "QualifiedName": "game.EnemyBehaviorFilter",
+                    "Description": "",
+                    "Source": {
+                        "File": "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
+                        "Line": 13,
+                        "Character": 60
+                    },
+                    "IsStatic": false,
+                    "IsReadonly": false,
+                    "IsOptional": false,
+                    "IsPublic": true
+                }
+            ],
+            "Methods": [
+                "OnEntityEnable",
+                "OnEntityUpdate"
+            ]
+        }
+    ],
     "Performance": [
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 49,
+            "Duration": 68,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 130,
+            "Duration": 170,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 692,
-            "Steps": 14
+            "Duration": 909,
+            "Steps": 17
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 62,
+            "Duration": 97,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 16,
-            "Steps": 4
+            "Duration": 10,
+            "Steps": 5
         }
     ],
     "SourceFiles": [
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/EnemyBehaviorFilter.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/GameService.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/InputMovementSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/PlayerCollisionSystem.ts",
+        "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/Random.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/ScrollingBgSystem.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/SpawnEnemySystem.ts",
         "H:/MyUnity/MyTinyModeTest01/Assets/MyAirplane/Scripts/Time.ts",
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "e6b3dfe19cbafa46e80330cad6ce474c",
-    "GeneratedAt": "Fri Dec 14 2018 21:28:42 GMT+0800 (中国标准时间)"
+    "InputHash": "4724974fc71c4184aac4b5bf409d63ca",
+    "GeneratedAt": "Mon Dec 17 2018 21:10:44 GMT+0800 (中国标准时间)"
 }

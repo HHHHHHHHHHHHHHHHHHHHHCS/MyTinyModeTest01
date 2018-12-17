@@ -79,6 +79,22 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct EnemySpawner : UTiny.IComponentData
+    {
+
+
+        public float timer;
+        public float delay;
+        public bool isPaused;
+        public string spawnGroup;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct MoveSpeed : UTiny.IComponentData
     {
 
@@ -123,22 +139,6 @@ namespace game
         public float speed;
         public float threshold;
         public float distance;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct EnemySpawner : UTiny.IComponentData
-    {
-
-
-        public float timer;
-        public float delay;
-        public bool isPaused;
-        public string spawnGroup;
 
 
 
@@ -354,6 +354,22 @@ namespace ut.EditorExtensions
 
 
         public int layer;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct EnemyBehavior_State : UTiny.IComponentData
+    {
+
+
+        public bool initialized;
+        public bool enabled;
+        public bool onEnableCalled;
+        public bool onDisableCalled;
 
 
 

@@ -19,6 +19,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var game;
 (function (game) {
+    /** 敌人的筛选器 */
+    var EnemyBehaviorFilter = /** @class */ (function (_super) {
+        __extends(EnemyBehaviorFilter, _super);
+        function EnemyBehaviorFilter() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EnemyBehaviorFilter;
+    }(ut.EntityFilter));
+    game.EnemyBehaviorFilter = EnemyBehaviorFilter;
+    /** 敌人的逻辑 */
+    var EnemyBehavior = /** @class */ (function (_super) {
+        __extends(EnemyBehavior, _super);
+        function EnemyBehavior() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        EnemyBehavior.prototype.OnEntityEnable = function () {
+            var totalTIme = game.Time.Time();
+            var newSpeed = this.data.speed.speed + (this.data.speedChange.changPerSecond * totalTIme);
+            var randomX = game.Random.Range(this.data.bounds.minX, this.data.bounds.maxX);
+            var newPos = new Vector3(randomX, this.data.bounds.maxY, 0);
+            this.data.position.position = newPos;
+            console.log("enenmy initialized.Speed: " + newSpeed + " newPos: " + newPos);
+        };
+        EnemyBehavior.prototype.OnEntityUpdate = function () {
+            var localPosition = this.data.position.position;
+            localPosition.y -= this.data.speed.speed * game.Time.DeltaTime();
+            this.data.position.position = localPosition;
+            if (localPosition.y <= this.data.bounds.minY) {
+                this.world.destroyEntity(this.data.entity);
+            }
+        };
+        return EnemyBehavior;
+    }(ut.ComponentBehaviour));
+    game.EnemyBehavior = EnemyBehavior;
+})(game || (game = {}));
+var game;
+(function (game) {
     /** 游戏管理 */
     var GameService = /** @class */ (function () {
         function GameService() {
@@ -154,6 +191,49 @@ var game;
         return InputMovementSystem;
     }(ut.ComponentSystem));
     game.InputMovementSystem = InputMovementSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** 玩家的碰撞事件 */
+    var PlayerCollisionSystem = /** @class */ (function (_super) {
+        __extends(PlayerCollisionSystem, _super);
+        function PlayerCollisionSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PlayerCollisionSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var isGameOver = false;
+            var filter = [ut.Entity, ut.Core2D.TransformLocalPosition, ut.HitBox2D.HitBoxOverlapResults, game.PlayerTag];
+            this.world.forEach(filter, function (entity, position, contacts, tag) {
+                var explosion = ut.EntityGroup.instantiate(_this.world, PlayerCollisionSystem.effectGroup)[0];
+                _this.world.usingComponentData(explosion, [ut.Core2D.TransformLocalPosition], function (pos) {
+                    pos.position = position.position;
+                });
+                _this.world.destroyEntity(entity);
+                isGameOver = true;
+            });
+            if (isGameOver) {
+                game.GameService.Restart(this.world);
+            }
+        };
+        PlayerCollisionSystem.effectGroup = "game.EffectGroup";
+        return PlayerCollisionSystem;
+    }(ut.ComponentSystem));
+    game.PlayerCollisionSystem = PlayerCollisionSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** 类似Unity 的 Random */
+    var Random = /** @class */ (function () {
+        function Random() {
+        }
+        /** 返回[min,max) */
+        Random.Range = function (min, max) {
+            return Math.random() * (max - min + 1) + min;
+        };
+        return Random;
+    }());
+    game.Random = Random;
 })(game || (game = {}));
 var game;
 (function (game) {

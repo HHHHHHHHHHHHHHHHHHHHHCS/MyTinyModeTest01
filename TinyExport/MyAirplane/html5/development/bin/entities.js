@@ -66,67 +66,7 @@ entities.game.EffectGroup.load = function(world) {
 
 entities.game.EnemyGroup.name = "EnemyGroup";
 entities.game.EnemyGroup.load = function(world) {
-    var arch0 = world.createArchetype(game.Border, game.ChangeOverTime, game.EnemeyTag, game.MoveSpeed, this.Component, ut.Core2D.LayerSorting, ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition, ut.Core2D.TransformLocalRotation, ut.Core2D.TransformLocalScale, ut.Core2D.TransformNode, ut.HitBox2D.RectHitBox2D, ut.layers.Default)
-    var e0 = world.createEntity(arch0);
-    world.setEntityName(e0, "EnemyPrefab");
-    var c0 = new ut.Core2D.TransformNode();
-    world.setComponentData(e0, c0);
-    var c1 = new ut.Core2D.TransformLocalPosition();
-    var s0 = new ut.Math.Vector3();
-    s0.x = 0;
-    s0.y = 0;
-    s0.z = 0;
-    c1.position = s0;
-    world.setComponentData(e0, c1);
-    var c2 = new ut.Core2D.TransformLocalRotation();
-    var s1 = new ut.Math.Quaternion();
-    s1.x = 0;
-    s1.y = 0;
-    s1.z = 0;
-    s1.w = 1;
-    c2.rotation = s1;
-    world.setComponentData(e0, c2);
-    var c3 = new ut.Core2D.TransformLocalScale();
-    var s2 = new ut.Math.Vector3();
-    s2.x = 1;
-    s2.y = 1;
-    s2.z = 1;
-    c3.scale = s2;
-    world.setComponentData(e0, c3);
-    var c4 = new ut.Core2D.Sprite2DRenderer();
-    c4.sprite = ut.EntityLookupCache.getByName(world, 'assets/sprites/spaceship1');
-    var s3 = new ut.Core2D.Color();
-    s3.r = 1;
-    s3.g = 1;
-    s3.b = 1;
-    s3.a = 1;
-    c4.color = s3;
-    c4.blending = 0;
-    world.setComponentData(e0, c4);
-    var c5 = new game.Border();
-    c5.minX = -2.5;
-    c5.maxX = 2.5;
-    c5.minY = -5.5;
-    c5.maxY = 5.5;
-    world.setComponentData(e0, c5);
-    var c6 = new game.MoveSpeed();
-    c6.speed = 1;
-    world.setComponentData(e0, c6);
-    var c7 = new game.ChangeOverTime();
-    c7.changPerSecond = 0.05;
-    world.setComponentData(e0, c7);
-    var c8 = new ut.HitBox2D.RectHitBox2D();
-    var s4 = new ut.Math.Rect();
-    s4.x = -0.23;
-    s4.y = -0.3;
-    s4.width = 0.45;
-    s4.height = 0.65;
-    c8.box = s4;
-    world.setComponentData(e0, c8);
-    var c9 = new ut.Core2D.LayerSorting();
-    c9.order = 4;
-    world.setComponentData(e0, c9);
-    return [e0];
+    return [];
 }
 
 entities.game.MainGroup.name = "MainGroup";

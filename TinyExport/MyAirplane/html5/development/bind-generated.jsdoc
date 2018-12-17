@@ -68,6 +68,36 @@
 
 @component
 @memberof game
+@name EnemySpawner
+*/
+/**
+
+@member {float}
+@memberof game.EnemySpawner
+@name timer
+*/
+/**
+
+@member {float}
+@memberof game.EnemySpawner
+@name delay
+*/
+/**
+
+@member {bool}
+@memberof game.EnemySpawner
+@name isPaused
+*/
+/**
+
+@member {string}
+@memberof game.EnemySpawner
+@name spawnGroup
+*/
+/**
+
+@component
+@memberof game
 @name MoveSpeed
 */
 /**
@@ -111,36 +141,6 @@
 @member {float}
 @memberof game.ScrollingBg
 @name distance
-*/
-/**
-
-@component
-@memberof game
-@name EnemySpawner
-*/
-/**
-
-@member {float}
-@memberof game.EnemySpawner
-@name timer
-*/
-/**
-
-@member {float}
-@memberof game.EnemySpawner
-@name delay
-*/
-/**
-
-@member {bool}
-@memberof game.EnemySpawner
-@name isPaused
-*/
-/**
-
-@member {string}
-@memberof game.EnemySpawner
-@name spawnGroup
 */
 /**
 
@@ -378,9 +378,45 @@
 */
 /**
 
+@component
+@memberof game
+@name EnemyBehavior_State
+*/
+/**
+
+@member {bool}
+@memberof game.EnemyBehavior_State
+@name initialized
+*/
+/**
+
+@member {bool}
+@memberof game.EnemyBehavior_State
+@name enabled
+*/
+/**
+
+@member {bool}
+@memberof game.EnemyBehavior_State
+@name onEnableCalled
+*/
+/**
+
+@member {bool}
+@memberof game.EnemyBehavior_State
+@name onDisableCalled
+*/
+/**
+
 @system
 @memberof game
 @name InputMovementSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name PlayerCollisionSystemJS
 */
 /**
 
@@ -399,6 +435,18 @@
 @system
 @memberof game
 @name TimeJS
+*/
+/**
+
+@system
+@memberof game
+@name EnemyBehavior_OnEntityEnableJS
+*/
+/**
+
+@system
+@memberof game
+@name EnemyBehavior_OnEntityUpdateJS
 */
 
 
