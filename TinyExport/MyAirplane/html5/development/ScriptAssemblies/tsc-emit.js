@@ -34,6 +34,7 @@ var game;
         function EnemyBehavior() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        /** 因为这个在第一帧之后执行 所以敌人要放在很远的地方 */
         EnemyBehavior.prototype.OnEntityEnable = function () {
             var totalTIme = game.Time.Time();
             var newSpeed = this.data.speed.speed + (this.data.speedChange.changPerSecond * totalTIme);

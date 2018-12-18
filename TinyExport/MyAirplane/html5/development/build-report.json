@@ -26,7 +26,7 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 8325,
+                "Size": 10349,
                 "CompressedSize": 0
             }
         }, {
@@ -84,8 +84,8 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/MyAirplane/html5/development/bin/entities.js",
-                "Size": 14922,
-                "CompressedSize": 2574
+                "Size": 17641,
+                "CompressedSize": 2798
             },
             "Children": [{
                 "Item": {
@@ -96,8 +96,8 @@
             }, {
                 "Item": {
                     "Name": "EnemyGroup",
-                    "Size": 120,
-                    "CompressedSize": 104
+                    "Size": 2839,
+                    "CompressedSize": 833
                 }
             }, {
                 "Item": {
@@ -121,8 +121,8 @@
             "Children": [{
                 "Item": {
                     "Name": "H:\\MyUnity\\MyTinyModeTest01\\TinyExport\\MyAirplane\\html5\\development\\ScriptAssemblies\\tsc-emit.js",
-                    "Size": 16761,
-                    "CompressedSize": 3458
+                    "Size": 16803,
+                    "CompressedSize": 3468
                 }
             }]
         }, {

@@ -5,7 +5,6 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "01ba696160fd4923b3978ae8d3985583", "Name": "Camera" },
         { "$TypeId": 9, "Id": "6882ff52a737448dab78b41822c79bad", "Name": "Background" },
         { "$TypeId": 9, "Id": "231c4c4e3a3045c88f2a38672f28c6a9", "Name": "Background_1" },
         { "$TypeId": 9, "Id": "e4b6d5f7bff64ee09f71f68b890e6623", "Name": "Background_2" },
@@ -15,35 +14,6 @@
         { "$TypeId": 9, "Id": "a99ce44e97b141258df4dd051362c820", "Name": "Player" },
         { "$TypeId": 9, "Id": "2591fa7c5e8049d29ffee0c627323aed", "Name": "EnemySpawner" }
     ]
-},
-{
-    "$TypeId": 5,
-    "Id": "01ba696160fd4923b3978ae8d3985583",
-    "Name": "Camera",
-    "Enabled": true,
-    "Static": false,
-    "Layer": 0,
-    "Components": [{
-        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
-    }, {
-        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
-    }, {
-        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
-    }, {
-        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
-    }, {
-        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
-        "Properties": {
-            "clearFlags": {
-                "$TypeId": 8,
-                "Type": { "Id": "76a06ddd38e99125d930e77c6a287872", "Name": "CameraClearFlags" },
-                "Id": "9faedc246f34513076701ef66b5ad74f",
-                "Name": "SolidColor",
-                "Value": 1
-            },
-            "depth": -1
-        }
-    }]
 },
 {
     "$TypeId": 5,
@@ -382,7 +352,7 @@
             "sprite": { "$TypeId": 10, "Guid": "23433a877f75d754c9f1bfb18e7493a4", "FileId": 21300004, "Type": 3 }
         }
     }, {
-        "Type": { "Id": "6ca185b531874285bcd4afb9ac86a8ff", "Name": "PlayerTag" }
+        "Type": { "Id": "6ca185b531874285bcd4afb9ac86a8ff", "Name": "EnemeyTag" }
     }, {
         "Type": { "Id": "95eba163dce5bfff5420a5a8c2845523", "Name": "Sprite2DSequence" },
         "Properties": {

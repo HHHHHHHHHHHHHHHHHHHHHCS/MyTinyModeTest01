@@ -13,6 +13,7 @@ namespace game {
 	export class EnemyBehavior extends ut.ComponentBehaviour {
 		data: EnemyBehaviorFilter;
 
+		/** 因为这个在第一帧之后执行 所以敌人要放在很远的地方 */
 		OnEntityEnable(): void {
 			let totalTIme = Time.Time()
 			let newSpeed = this.data.speed.speed + (this.data.speedChange.changPerSecond * totalTIme)
