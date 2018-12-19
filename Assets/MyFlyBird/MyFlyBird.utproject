@@ -1,14 +1,14 @@
 ﻿[{
     "$TypeId": 1,
-    "Id": "440e6c680dc84cf282e7a5e6a18cc063",
-    "Name": "MyAirplane",
+    "Id": "4e71a5c587a54cbcb7efbf104211e97b",
+    "Name": "MyFlyBird",
     "ExportFlags": 0,
     "SerializedVersion": 6,
     "Settings": {
-        "CanvasWidth": 750,
-        "CanvasHeight": 1334,
+        "CanvasWidth": 1920,
+        "CanvasHeight": 1080,
         "EmbedAssets": true,
-        "CanvasAutoResize": false,
+        "CanvasAutoResize": true,
         "RenderMode": 0,
         "DefaultTextureSettings": {
             "$TypeId": 2,
@@ -27,7 +27,7 @@
         },
         "LocalWSServerPort": 17700,
         "LocalHTTPServerPort": 19050,
-        "SingleFileHtml": true,
+        "SingleFileHtml": false,
         "MemorySize": 16,
         "IncludeWebPDecompressor": false,
         "RunBabel": true,
@@ -35,12 +35,12 @@
         "LinkToSource": true,
         "SymbolsInReleaseBuild": false
     },
-    "Module": { "Id": "36b2746670204513ac964fb18fb98575", "Name": "Main" },
-    "Configuration": { "$TypeId": 9, "Id": "037a7fd974c04915a63665a79a7fe0f5", "Name": "Configuration" }
+    "Module": { "Id": "447601e9bb9747e5bfdfd6c67812e41b", "Name": "Main" },
+    "Configuration": { "$TypeId": 9, "Id": "b6157026f8424cfbbc6524d0391acb92", "Name": "Configuration" }
 },
 {
     "$TypeId": 2,
-    "Id": "36b2746670204513ac964fb18fb98575",
+    "Id": "447601e9bb9747e5bfdfd6c67812e41b",
     "Name": "Main",
     "SerializedVersion": 1,
     "ExportFlags": 0,
@@ -58,15 +58,13 @@
         { "Id": "404877ed746affa8a6081ad8161dd8de", "Name": "UTiny.EditorExtensions" },
         { "Id": "a1b50987659c653138795a8f4079fc10", "Name": "UTiny.Math" },
         { "Id": "ce3f1bd7050540b70d450a606e226ea2", "Name": "UTiny.Shared" },
-        { "Id": "36f73ad23c8a63c53fa510f0621474f5", "Name": "UTiny.HitBox2D" },
-        { "Id": "36b2746670204513ac964fb18fb98575", "Name": "Main" },
-        { "Id": "259902b84b3ed0f7213a1b5e37040709", "Name": "UTiny.Physics2D" }
+        { "Id": "251df5ef6819533f94e1cbf3181f722e", "Name": "UTiny.Audio" }
     ],
-    "StartupEntityGroup": { "Id": "cc52fe2e28f044bbaca610e73194b42f", "Name": "NewEntityGroup" }
+    "StartupEntityGroup": { "Id": "ffda5a4b1e2a45438be23ae037f0c28d", "Name": "NewEntityGroup" }
 },
 {
     "$TypeId": 5,
-    "Id": "037a7fd974c04915a63665a79a7fe0f5",
+    "Id": "b6157026f8424cfbbc6524d0391acb92",
     "Name": "Configuration",
     "Enabled": true,
     "Static": false,
@@ -74,11 +72,11 @@
     "Components": [{
         "Type": { "Id": "575fe161bc06950c954480d04c70c9ab", "Name": "DisplayInfo" },
         "Properties": {
-            "width": 750,
-            "height": 1334,
-            "autoSizeToFrame": false
+            "width": 1920,
+            "height": 1080,
+            "autoSizeToFrame": true
         }
     }, {
-        "Type": { "Id": "38283a6cef9faa790b5c9936163d59e3", "Name": "Physics2DConfig" }
+        "Type": { "Id": "e816e7b93a13b9e5ddf993486ca79278", "Name": "AudioConfig" }
     }]
 }]

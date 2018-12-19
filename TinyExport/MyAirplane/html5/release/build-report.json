@@ -12,9 +12,9 @@
         },
         "Children": [{
             "Item": {
-                "Name": "TinyExport/MyAirplane/html5/development/bin/runtime.js",
-                "Size": 6022497,
-                "CompressedSize": 776520
+                "Name": "TinyExport/MyAirplane/html5/release/bin/runtime.js",
+                "Size": 973255,
+                "CompressedSize": 204608
             }
         }]
     }, {
@@ -26,7 +26,7 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 10349,
+                "Size": 7338,
                 "CompressedSize": 0
             }
         }, {
@@ -83,9 +83,9 @@
         },
         "Children": [{
             "Item": {
-                "Name": "TinyExport/MyAirplane/html5/development/bin/entities.js",
-                "Size": 15836,
-                "CompressedSize": 2455
+                "Name": "TinyExport/MyAirplane/html5/release/bin/entities.js",
+                "Size": 17356,
+                "CompressedSize": 2756
             },
             "Children": [{
                 "Item": {
@@ -102,40 +102,34 @@
             }, {
                 "Item": {
                     "Name": "MainGroup",
-                    "Size": 10436,
-                    "CompressedSize": 1935
+                    "Size": 11956,
+                    "CompressedSize": 2233
                 }
             }]
         }, {
             "Item": {
-                "Name": "TinyExport/MyAirplane/html5/development/bin/bindings.js",
-                "Size": 111858,
-                "CompressedSize": 9398
+                "Name": "TinyExport/MyAirplane/html5/release/bin/bindings.js",
+                "Size": 105289,
+                "CompressedSize": 8733
             }
         }, {
             "Item": {
-                "Name": "Linked Code Files",
-                "Size": 0,
-                "CompressedSize": 0
+                "Name": "TinyExport/MyAirplane/html5/release/bin/code.js",
+                "Size": 17020,
+                "CompressedSize": 3777
             },
             "Children": [{
                 "Item": {
-                    "Name": "H:\\MyUnity\\MyTinyModeTest01\\TinyExport\\MyAirplane\\html5\\development\\ScriptAssemblies\\tsc-emit.js",
-                    "Size": 16803,
-                    "CompressedSize": 3468
+                    "Name": "H:\\MyUnity\\MyTinyModeTest01\\TinyExport\\MyAirplane\\html5\\release\\ScriptAssemblies\\tsc-emit.js",
+                    "Size": 16796,
+                    "CompressedSize": 3461
                 }
             }]
         }, {
             "Item": {
-                "Name": "TinyExport/MyAirplane/html5/development/bin/main.js",
-                "Size": 6772,
-                "CompressedSize": 1528
-            }
-        }, {
-            "Item": {
-                "Name": "TinyExport/MyAirplane/html5/development/bin/wsclient.js",
-                "Size": 9391,
-                "CompressedSize": 2619
+                "Name": "TinyExport/MyAirplane/html5/release/bin/main.js",
+                "Size": 6661,
+                "CompressedSize": 1486
             }
         }]
     }]

@@ -10,9 +10,9 @@
         { "$TypeId": 9, "Id": "e4b6d5f7bff64ee09f71f68b890e6623", "Name": "Background_2" },
         { "$TypeId": 9, "Id": "d576d19b75e44fe484bc7e5c11559815", "Name": "BackgroundParallax_1" },
         { "$TypeId": 9, "Id": "ec8c257938e34048ab4bc3bc06985e16", "Name": "BackgroundParallax_2" },
-        { "$TypeId": 9, "Id": "e4307e59c9a048e59de378ae66c17a6f", "Name": "EnemySpawner" },
         { "$TypeId": 9, "Id": "a99ce44e97b141258df4dd051362c820", "Name": "Player" },
-        { "$TypeId": 9, "Id": "2591fa7c5e8049d29ffee0c627323aed", "Name": "EnemySpawner" }
+        { "$TypeId": 9, "Id": "2591fa7c5e8049d29ffee0c627323aed", "Name": "EnemySpawner" },
+        { "$TypeId": 9, "Id": "633a69ea6a5a4c58a93da2ce864928c9", "Name": "Camera" }
     ]
 },
 {
@@ -306,14 +306,6 @@
 },
 {
     "$TypeId": 5,
-    "Id": "e4307e59c9a048e59de378ae66c17a6f",
-    "Name": "EnemySpawner",
-    "Enabled": true,
-    "Static": false,
-    "Layer": 0
-},
-{
-    "$TypeId": 5,
     "Id": "a99ce44e97b141258df4dd051362c820",
     "Name": "Player",
     "Enabled": true,
@@ -419,6 +411,35 @@
             "timer": 0,
             "delay": 1.5,
             "spawnGroup": "game.EnemyGroup"
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "633a69ea6a5a4c58a93da2ce864928c9",
+    "Name": "Camera",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+    }, {
+        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
+        "Properties": {
+            "clearFlags": {
+                "$TypeId": 8,
+                "Type": { "Id": "76a06ddd38e99125d930e77c6a287872", "Name": "CameraClearFlags" },
+                "Id": "9faedc246f34513076701ef66b5ad74f",
+                "Name": "SolidColor",
+                "Value": 1
+            },
+            "depth": -1
         }
     }]
 }]

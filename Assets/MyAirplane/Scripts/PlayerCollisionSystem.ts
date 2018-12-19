@@ -21,7 +21,7 @@ namespace game {
 			
 			if(isGameOver)
 			{
-				game.GameService.Restart(this.world);
+				GameService.Restart(this.world);
 			}
 
 		}
