@@ -1,0 +1,25 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "de288de76b0f4f56a0c86dfbc8210009",
+    "Name": "RepeatingBackground",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "785fbc1937ac4094894cf3e22db6211f",
+        "Name": "threshold",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "7d4f8f1a4004464398eb7ec179a24ee8",
+        "Name": "distance",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "de288de76b0f4f56a0c86dfbc8210009", "Name": "RepeatingBackground" }
+    }
+}]

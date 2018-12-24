@@ -1,0 +1,43 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "5af0c116ad364400a39780a241cb1a9a",
+    "Name": "NumberTextRenderer",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "86cc8b0ce0b3432ea62b233db610869c",
+        "Name": "value",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "a7b144b2741149929cd53e59b3fe0a03",
+        "Name": "spacing",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "f9fc6e2410084b0481441097a38425fa",
+        "Name": "alignment",
+        "FieldType": { "Id": "0509fc5d79c34e9c8cb0718a3b043459", "Name": "TextAligment" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "3f0efc23e3c54affa1b57aaad57d6b9d",
+        "Name": "renderers",
+        "FieldType": { "Id": "5a182d9d039d4dfd8fa96132d05f9ee7", "Name": "EntityReference" },
+        "Array": true,
+        "Visibility": 0
+    }, {
+        "Id": "67b2ee1637c2418bae861f8ba81bbd04",
+        "Name": "characters",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": true,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "5af0c116ad364400a39780a241cb1a9a", "Name": "NumberTextRenderer" }
+    }
+}]

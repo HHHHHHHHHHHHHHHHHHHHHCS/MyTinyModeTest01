@@ -1,0 +1,29 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "0509fc5d79c34e9c8cb0718a3b043459",
+    "Name": "TextAligment",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Enum",
+    "BaseType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+    "Fields": [{
+        "Id": "0ae468143930466998c81793d001b430",
+        "Name": "Center",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "1b59f6a52bba4af2a12eb5112d45d3b6",
+        "Name": "Right",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "0509fc5d79c34e9c8cb0718a3b043459", "Name": "TextAligment" },
+        "Properties": {
+            "Right": 1
+        }
+    }
+}]

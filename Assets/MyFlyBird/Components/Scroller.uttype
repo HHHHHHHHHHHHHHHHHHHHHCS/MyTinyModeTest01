@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "d2cf7dbebcd24b11b60de1f6c2a09140",
+    "Name": "Scroller",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "d2cf7dbebcd24b11b60de1f6c2a09140", "Name": "Scroller" }
+    }
+}]

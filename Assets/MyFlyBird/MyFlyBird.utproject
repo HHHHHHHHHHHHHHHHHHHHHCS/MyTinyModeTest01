@@ -58,7 +58,10 @@
         { "Id": "404877ed746affa8a6081ad8161dd8de", "Name": "UTiny.EditorExtensions" },
         { "Id": "a1b50987659c653138795a8f4079fc10", "Name": "UTiny.Math" },
         { "Id": "ce3f1bd7050540b70d450a606e226ea2", "Name": "UTiny.Shared" },
-        { "Id": "251df5ef6819533f94e1cbf3181f722e", "Name": "UTiny.Audio" }
+        { "Id": "251df5ef6819533f94e1cbf3181f722e", "Name": "UTiny.Audio" },
+        { "Id": "77778da25aeb380ab7e46deb6d495cdc", "Name": "UTiny.Tweens" },
+        { "Id": "447601e9bb9747e5bfdfd6c67812e41b", "Name": "Main" },
+        { "Id": "36f73ad23c8a63c53fa510f0621474f5", "Name": "UTiny.HitBox2D" }
     ],
     "StartupEntityGroup": { "Id": "ffda5a4b1e2a45438be23ae037f0c28d", "Name": "NewEntityGroup" }
 },
