@@ -78,68 +78,6 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
-    class NumberTextRenderer extends ut.Component {
-        constructor();
-        value: number;
-        spacing: number;
-        alignment: TextAligment;
-        renderers: ut.Entity[];
-        characters: ut.Entity[];
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: NumberTextRenderer): NumberTextRenderer;
-        static _toPtr(p: number, v: NumberTextRenderer): void;
-        static _tempHeapPtr(v: NumberTextRenderer): number;
-        static _dtorFn(v: NumberTextRenderer): void;
-    }
-    class Gravity extends ut.Component {
-        constructor();
-        gravity: ut.Math.Vector2;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Gravity): Gravity;
-        static _toPtr(p: number, v: Gravity): void;
-        static _tempHeapPtr(v: Gravity): number;
-        static _dtorFn(v: Gravity): void;
-    }
-    class Velocity extends ut.Component {
-        constructor();
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Velocity): Velocity;
-        static _toPtr(p: number, v: Velocity): void;
-        static _tempHeapPtr(v: Velocity): number;
-        static _dtorFn(v: Velocity): void;
-    }
-    class Reskinnable extends ut.Component {
-        constructor();
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Reskinnable): Reskinnable;
-        static _toPtr(p: number, v: Reskinnable): void;
-        static _tempHeapPtr(v: Reskinnable): number;
-        static _dtorFn(v: Reskinnable): void;
-    }
-    class PlayerInput extends ut.Component {
-        constructor();
-        force: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: PlayerInput): PlayerInput;
-        static _toPtr(p: number, v: PlayerInput): void;
-        static _tempHeapPtr(v: PlayerInput): number;
-        static _dtorFn(v: PlayerInput): void;
-    }
     class EnemeySpawner extends ut.Component {
         constructor();
         time: number;
@@ -157,27 +95,17 @@ declare namespace game{
         static _tempHeapPtr(v: EnemeySpawner): number;
         static _dtorFn(v: EnemeySpawner): void;
     }
-    class Scroller extends ut.Component {
+    class Gravity extends ut.Component {
         constructor();
+        gravity: ut.Math.Vector2;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
         static _size: number;
-        static _fromPtr(p: number, v?: Scroller): Scroller;
-        static _toPtr(p: number, v: Scroller): void;
-        static _tempHeapPtr(v: Scroller): number;
-        static _dtorFn(v: Scroller): void;
-    }
-    class RepeatingBackground extends ut.Component {
-        constructor();
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
-        static _toPtr(p: number, v: RepeatingBackground): void;
-        static _tempHeapPtr(v: RepeatingBackground): number;
-        static _dtorFn(v: RepeatingBackground): void;
+        static _fromPtr(p: number, v?: Gravity): Gravity;
+        static _toPtr(p: number, v: Gravity): void;
+        static _tempHeapPtr(v: Gravity): number;
+        static _dtorFn(v: Gravity): void;
     }
     class Ground extends ut.Component {
         constructor();
@@ -189,6 +117,80 @@ declare namespace game{
         static _toPtr(p: number, v: Ground): void;
         static _tempHeapPtr(v: Ground): number;
         static _dtorFn(v: Ground): void;
+    }
+    class NumberTextRenderer extends ut.Component {
+        constructor();
+        value: number;
+        spacing: number;
+        alignment: TextAligment;
+        renderers: ut.Entity[];
+        characters: ut.Entity[];
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: NumberTextRenderer): NumberTextRenderer;
+        static _toPtr(p: number, v: NumberTextRenderer): void;
+        static _tempHeapPtr(v: NumberTextRenderer): number;
+        static _dtorFn(v: NumberTextRenderer): void;
+    }
+    class PlayerInput extends ut.Component {
+        constructor();
+        force: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: PlayerInput): PlayerInput;
+        static _toPtr(p: number, v: PlayerInput): void;
+        static _tempHeapPtr(v: PlayerInput): number;
+        static _dtorFn(v: PlayerInput): void;
+    }
+    class RepeatingBackground extends ut.Component {
+        constructor();
+        threshold: number;
+        distance: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
+        static _toPtr(p: number, v: RepeatingBackground): void;
+        static _tempHeapPtr(v: RepeatingBackground): number;
+        static _dtorFn(v: RepeatingBackground): void;
+    }
+    class Reskinnable extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Reskinnable): Reskinnable;
+        static _toPtr(p: number, v: Reskinnable): void;
+        static _tempHeapPtr(v: Reskinnable): number;
+        static _dtorFn(v: Reskinnable): void;
+    }
+    class Scroller extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Scroller): Scroller;
+        static _toPtr(p: number, v: Scroller): void;
+        static _tempHeapPtr(v: Scroller): number;
+        static _dtorFn(v: Scroller): void;
+    }
+    class Velocity extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Velocity): Velocity;
+        static _toPtr(p: number, v: Velocity): void;
+        static _tempHeapPtr(v: Velocity): number;
+        static _dtorFn(v: Velocity): void;
     }
     enum TextAligment {
         Center = 0,
