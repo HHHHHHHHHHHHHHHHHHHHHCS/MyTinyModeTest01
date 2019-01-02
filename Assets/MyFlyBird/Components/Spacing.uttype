@@ -1,0 +1,34 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "0e3451f3fd42479d85015a3eaa09cee3",
+    "Name": "Spacing",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "6a06109bfe78492a878f474498513fc5",
+        "Name": "top",
+        "FieldType": { "Id": "5a182d9d039d4dfd8fa96132d05f9ee7", "Name": "EntityReference" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "e8970e8ea14140aaba44ef598cfbbb7f",
+        "Name": "bottom",
+        "FieldType": { "Id": "5a182d9d039d4dfd8fa96132d05f9ee7", "Name": "EntityReference" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "391d509b81274bcfaa3ea96f60c6a82e",
+        "Name": "spacing",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "0e3451f3fd42479d85015a3eaa09cee3", "Name": "Spacing" },
+        "Properties": {
+            "spacing": 0
+        }
+    }
+}]

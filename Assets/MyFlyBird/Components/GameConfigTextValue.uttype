@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "d0a26bcc878045a9a194e3734253c897",
+    "Name": "GameConfigTextValue",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "f2e9546b853341fc9c16e83d4d3ca89a",
+        "Name": "key",
+        "FieldType": { "Id": "1bff5adddd7c41de98d3329c7c641208", "Name": "String" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "d0a26bcc878045a9a194e3734253c897", "Name": "GameConfigTextValue" }
+    }
+}]

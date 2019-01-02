@@ -78,6 +78,48 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
+    class GameConfig extends ut.Component {
+        constructor();
+        state: GameState;
+        scrollSpeed: number;
+        gravity: number;
+        currentScore: number;
+        highScore: number;
+        currentScrollSpeed: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: GameConfig): GameConfig;
+        static _toPtr(p: number, v: GameConfig): void;
+        static _tempHeapPtr(v: GameConfig): number;
+        static _dtorFn(v: GameConfig): void;
+    }
+    class SkinConfig extends ut.Component {
+        constructor();
+        theme: SkinType;
+        forced: boolean;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SkinConfig): SkinConfig;
+        static _toPtr(p: number, v: SkinConfig): void;
+        static _tempHeapPtr(v: SkinConfig): number;
+        static _dtorFn(v: SkinConfig): void;
+    }
+    class AutoDestory extends ut.Component {
+        constructor();
+        threshold: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: AutoDestory): AutoDestory;
+        static _toPtr(p: number, v: AutoDestory): void;
+        static _tempHeapPtr(v: AutoDestory): number;
+        static _dtorFn(v: AutoDestory): void;
+    }
     class EnemeySpawner extends ut.Component {
         constructor();
         time: number;
@@ -94,6 +136,18 @@ declare namespace game{
         static _toPtr(p: number, v: EnemeySpawner): void;
         static _tempHeapPtr(v: EnemeySpawner): number;
         static _dtorFn(v: EnemeySpawner): void;
+    }
+    class GameConfigTextValue extends ut.Component {
+        constructor();
+        key: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: GameConfigTextValue): GameConfigTextValue;
+        static _toPtr(p: number, v: GameConfigTextValue): void;
+        static _tempHeapPtr(v: GameConfigTextValue): number;
+        static _dtorFn(v: GameConfigTextValue): void;
     }
     class Gravity extends ut.Component {
         constructor();
@@ -170,6 +224,18 @@ declare namespace game{
         static _tempHeapPtr(v: Reskinnable): number;
         static _dtorFn(v: Reskinnable): void;
     }
+    class ScorePoint extends ut.Component {
+        constructor();
+        value: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScorePoint): ScorePoint;
+        static _toPtr(p: number, v: ScorePoint): void;
+        static _tempHeapPtr(v: ScorePoint): number;
+        static _dtorFn(v: ScorePoint): void;
+    }
     class Scroller extends ut.Component {
         constructor();
         static readonly cid: number;
@@ -181,6 +247,20 @@ declare namespace game{
         static _tempHeapPtr(v: Scroller): number;
         static _dtorFn(v: Scroller): void;
     }
+    class Spacing extends ut.Component {
+        constructor();
+        top: ut.Entity;
+        bottom: ut.Entity;
+        spacing: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Spacing): Spacing;
+        static _toPtr(p: number, v: Spacing): void;
+        static _tempHeapPtr(v: Spacing): number;
+        static _dtorFn(v: Spacing): void;
+    }
     class Velocity extends ut.Component {
         constructor();
         static readonly cid: number;
@@ -191,6 +271,17 @@ declare namespace game{
         static _toPtr(p: number, v: Velocity): void;
         static _tempHeapPtr(v: Velocity): number;
         static _dtorFn(v: Velocity): void;
+    }
+    enum GameState {
+        Initialize = 0,
+        Menu = 1,
+        Tutorial = 2,
+        Play = 3,
+        GameOver = 4,
+    }
+    enum SkinType {
+        Day = 0,
+        Night = 1,
     }
     enum TextAligment {
         Center = 0,

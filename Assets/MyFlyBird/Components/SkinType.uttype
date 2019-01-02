@@ -1,0 +1,29 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "1cdce2aafdf24de488f8f2382e979ccd",
+    "Name": "SkinType",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Enum",
+    "BaseType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+    "Fields": [{
+        "Id": "65c84064d1954122853bb4d0c7b50db3",
+        "Name": "Day",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }, {
+        "Id": "be2351c7109449a7a124ccc23ccfc604",
+        "Name": "Night",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "1cdce2aafdf24de488f8f2382e979ccd", "Name": "SkinType" },
+        "Properties": {
+            "Night": 1
+        }
+    }
+}]

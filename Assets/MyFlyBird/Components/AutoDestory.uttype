@@ -1,0 +1,22 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "a5b9098690c2401c830f18e990c7284a",
+    "Name": "AutoDestory",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "eb901a421ea9418e84d8516f60715836",
+        "Name": "threshold",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "a5b9098690c2401c830f18e990c7284a", "Name": "AutoDestory" },
+        "Properties": {
+            "threshold": 0
+        }
+    }
+}]

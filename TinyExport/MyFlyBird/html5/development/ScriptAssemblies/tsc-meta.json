@@ -14,25 +14,25 @@
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 227,
+            "Duration": 158,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 881,
+            "Duration": 798,
             "Steps": 9
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 40,
+            "Duration": 30,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 2,
+            "Duration": 1,
             "Steps": 0
         }
     ],
@@ -40,6 +40,6 @@
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "H:/MyUnity/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "8bd0d9bdcadb61cd200fdd1c7fb0850d",
-    "GeneratedAt": "Thu Dec 27 2018 21:18:12 GMT+0800 (中国标准时间)"
+    "InputHash": "028d11469b6107f00cf292723598bcac",
+    "GeneratedAt": "Fri Dec 28 2018 21:17:20 GMT+0800 (中国标准时间)"
 }

@@ -1,0 +1,22 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "d97207e894ff431885dde66ad31a529e",
+    "Name": "ScorePoint",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "b082f7634783401db9db9441d0bb135b",
+        "Name": "value",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "d97207e894ff431885dde66ad31a529e", "Name": "ScorePoint" },
+        "Properties": {
+            "value": 1
+        }
+    }
+}]

@@ -84,5 +84,9 @@
         "Type": { "Id": "e816e7b93a13b9e5ddf993486ca79278", "Name": "AudioConfig" }
     }, {
         "Type": { "Id": "38283a6cef9faa790b5c9936163d59e3", "Name": "Physics2DConfig" }
+    }, {
+        "Type": { "Id": "80774685b0d24c8bb461aa9ea04b68a1", "Name": "GameConfig" }
+    }, {
+        "Type": { "Id": "3ecca204d57c48d1ba0f7c08e4e0d5c9", "Name": "SkinConfig" }
     }]
 }]
