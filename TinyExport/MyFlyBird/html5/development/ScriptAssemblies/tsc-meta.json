@@ -1,46 +1,91 @@
 {
     "Success": true,
     "Diagnostics": [],
-    "Systems": [],
+    "Systems": [
+        {
+            "Name": "AutoDestroySystem",
+            "QualifiedName": "game.AutoDestroySystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
+                "Line": 8,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformNode",
+                "ut.Core2D.TransformLocalPosition",
+                "game.AutoDestory"
+            ]
+        },
+        {
+            "Name": "GameNumberTextValueSystem",
+            "QualifiedName": "gmae.GameNumberTextValueSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.NumberTextRenderer",
+                "game.GameConfigTextValue"
+            ]
+        }
+    ],
     "Filters": [],
     "Behaviours": [],
     "Performance": [
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 91,
+            "Duration": 120,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 162,
+            "Duration": 218,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 919,
-            "Steps": 10
+            "Duration": 1272,
+            "Steps": 13
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 35,
+            "Duration": 75,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 2,
-            "Steps": 0
+            "Duration": 6,
+            "Steps": 2
         }
     ],
     "SourceFiles": [
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AudioService.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameService.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "ce81f0c52a91ca0ab7762745c272463c",
-    "GeneratedAt": "Thu Jan 03 2019 20:35:29 GMT+0800 (中国标准时间)"
+    "InputHash": "b045f6703c7eba06c9f7e866903166fe",
+    "GeneratedAt": "Sun Jan 06 2019 17:50:01 GMT+0800 (中国标准时间)"
 }

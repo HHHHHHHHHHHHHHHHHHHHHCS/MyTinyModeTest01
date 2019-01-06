@@ -1,3 +1,102 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var game;
+(function (game) {
+    /** 声音管理器 */
+    var AudioService = /** @class */ (function () {
+        function AudioService() {
+        }
+        AudioService.PlayAudioSourceByName = function (world, name) {
+            var entity = world.getEntityByName(name);
+            if (entity.isNone()) {
+                console.warn("game.AudioService.PlayAudioSourceByName:" + name + "not find");
+                return;
+            }
+            AudioService.PlayAudioSource(world, entity);
+        };
+        AudioService.PlayAudioSource = function (world, entity) {
+            if (!world.hasComponent(entity, ut.Audio.AudioSource)) {
+                console.warn("game.AudioService.PlayAudioSource: don't find AudioSource Component");
+                return;
+            }
+            if (!world.hasComponent(entity, ut.Audio.AudioSourceStart)) {
+                world.addComponent(entity, ut.Audio.AudioSourceStart);
+            }
+        };
+        return AudioService;
+    }());
+    game.AudioService = AudioService;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var AutoDestroySystem = /** @class */ (function (_super) {
+        __extends(AutoDestroySystem, _super);
+        /** 自动销毁系统 */
+        function AutoDestroySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        AutoDestroySystem.prototype.OnUpdate = function () {
+            this.world.forEach([ut.Core2D.TransformNode, ut.Core2D.TransformLocalPosition, game.AutoDestory], function (transformNode, transformLocalPosition, autoDestory) {
+                var pos = transformLocalPosition.position;
+                if (pos.x < autoDestory.threshold) {
+                }
+            });
+        };
+        AutoDestroySystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(ut.Core2D.TransformNode),
+            ut.requiredComponents(ut.Core2D.TransformLocalPosition),
+            ut.requiredComponents(game.AutoDestory)
+            /** 自动销毁系统 */
+        ], AutoDestroySystem);
+        return AutoDestroySystem;
+    }(ut.ComponentSystem));
+    game.AutoDestroySystem = AutoDestroySystem;
+})(game || (game = {}));
+var gmae;
+(function (gmae) {
+    var GameNumberTextValueSystem = /** @class */ (function (_super) {
+        __extends(GameNumberTextValueSystem, _super);
+        /** 游戏分数系统 */
+        function GameNumberTextValueSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameNumberTextValueSystem.prototype.OnUpdate = function () {
+            var gameConfig = this.world.getConfigData(game.GameConfig);
+            this.world.forEach([ut.Entity, game.NumberTextRenderer, game.GameConfigTextValue], function (entity, renderer, value) {
+                renderer.value = gameConfig[value.key];
+            });
+        };
+        GameNumberTextValueSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd)
+            //@ut.executeBefore(game.NumberTextRenderingSystem)
+            ,
+            ut.requiredComponents(game.NumberTextRenderer, game.GameConfigTextValue)
+            /** 游戏分数系统 */
+        ], GameNumberTextValueSystem);
+        return GameNumberTextValueSystem;
+    }(ut.ComponentSystem));
+    gmae.GameNumberTextValueSystem = GameNumberTextValueSystem;
+})(gmae || (gmae = {}));
 var game;
 (function (game) {
     /** 游戏的管理器 */
