@@ -71,6 +71,42 @@ var game;
     }(ut.ComponentSystem));
     game.AutoDestroySystem = AutoDestroySystem;
 })(game || (game = {}));
+var game;
+(function (game) {
+    var GameManagerSystem = /** @class */ (function (_super) {
+        __extends(GameManagerSystem, _super);
+        function GameManagerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameManagerSystem.prototype.OnUpdate = function () {
+            var config = this.world.getConfigData(game.GameConfig);
+            switch (config.state) {
+                case game.GameState.Initialize: {
+                    game.GameService.Initialize(this.world);
+                    break;
+                }
+                case game.GameState.Menu: {
+                    break;
+                }
+                case game.GameState.Tutorial: {
+                    if (ut.Runtime.Input.getMouseButtonDown(0)) {
+                        game.GameService.en;
+                    }
+                    break;
+                }
+                case game.GameState.Play: {
+                    break;
+                }
+            }
+        };
+        GameManagerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd)
+        ], GameManagerSystem);
+        return GameManagerSystem;
+    }(ut.ComponentSystem));
+    game.GameManagerSystem = GameManagerSystem;
+})(game || (game = {}));
 var gmae;
 (function (gmae) {
     var GameNumberTextValueSystem = /** @class */ (function (_super) {
@@ -87,9 +123,8 @@ var gmae;
         };
         GameNumberTextValueSystem = __decorate([
             ut.executeAfter(ut.Shared.UserCodeStart),
-            ut.executeBefore(ut.Shared.UserCodeEnd)
-            //@ut.executeBefore(game.NumberTextRenderingSystem)
-            ,
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.executeBefore(game.NumberTextRenderingSystem),
             ut.requiredComponents(game.NumberTextRenderer, game.GameConfigTextValue)
             /** 游戏分数系统 */
         ], GameNumberTextValueSystem);
@@ -190,6 +225,20 @@ var game;
             spawner.paused = paused;
             world.setComponentData(entity, spawner);
         };
+        GameService.EndTutorial = function (world) {
+            ut.EntityGroup.destroyAll(world, this.tutorialScenenName);
+            this.SetSpawnerPaused(world, false);
+            var player = world.getEntityByName(this.playerEntityName);
+            var gameConfig = world.getConfigData(game.GameConfig);
+            //设置重力
+            world.usingComponentData(player, [game.Gravity], function (gravity) {
+                gravity.gravity = new ut.Math.Vector2(0, gameConfig.gravity);
+            });
+            ut.Tweens.TweenService.removeAllTweensInWorld(world);
+            gameConfig.state = game.GameState.Play;
+            world.setConfigData(gameConfig);
+            ut.EntityGroup.instantiate(world, this.scoreSceneName);
+        };
         /**
          * 单位的名字
          */
@@ -206,6 +255,82 @@ var game;
         return GameService;
     }());
     game.GameService = GameService;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var NumberTextRenderingSystem = /** @class */ (function (_super) {
+        __extends(NumberTextRenderingSystem, _super);
+        /**
+         * 数字组件系统
+         * 用于显示分数
+         */
+        function NumberTextRenderingSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        NumberTextRenderingSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.NumberTextRenderer], function (numberTextRenderer) {
+                var value = numberTextRenderer.value;
+                var spacing = numberTextRenderer.spacing;
+                var alignment = numberTextRenderer.alignment;
+                var renderers = numberTextRenderer.renderers;
+                var characters = numberTextRenderer.characters;
+                var digits = [
+                    value % 10,
+                    Math.floor(value / 10),
+                    Math.floor(value / 100),
+                    Math.floor(value / 1000)
+                ];
+                var count = renderers.length;
+                //开头是0就别显示
+                for (var i = renderers.length - 1; i >= 1; i--) {
+                    if (digits[i] != 0) {
+                        break;
+                    }
+                    count = i;
+                }
+                var width = count * spacing; //间距
+                for (var i = 0; i < renderers.length; i++) {
+                    var renderer = renderers[i];
+                    //得到数据
+                    var spriteRenderer = _this.world.getComponentData(renderer, ut.Core2D.Sprite2DRenderer);
+                    var color = spriteRenderer.color;
+                    if (i < count) {
+                        color.a = 1;
+                        spriteRenderer.sprite = characters[digits[i]];
+                        var position = void 0;
+                        if (alignment == game.TextAligment.Center) {
+                            //从中间散开字
+                            position = new Vector3(spacing * (count - i - 1) - (width - spacing) * 0.5, 0, 0);
+                        }
+                        else {
+                            //从做到右排序
+                            position = new Vector3(spacing * -i, 0, 0);
+                        }
+                        //设置数据
+                        _this.world.setComponentData(renderer, new ut.Core2D.TransformLocalPosition(position));
+                    }
+                    else {
+                        //如果不是用就隐藏
+                        color.a = 0;
+                    }
+                    spriteRenderer.color = color;
+                    _this.world.setComponentData(renderer, spriteRenderer);
+                }
+            });
+        };
+        NumberTextRenderingSystem = __decorate([
+            ut.executeBefore(ut.Shared.RenderingFence),
+            ut.requiredComponents(game.NumberTextRenderer),
+            ut.optionalComponents(ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition)
+            /**
+             * 数字组件系统
+             * 用于显示分数
+             */
+        ], NumberTextRenderingSystem);
+        return NumberTextRenderingSystem;
+    }(ut.ComponentSystem));
+    game.NumberTextRenderingSystem = NumberTextRenderingSystem;
 })(game || (game = {}));
 var ut;
 (function (ut) {

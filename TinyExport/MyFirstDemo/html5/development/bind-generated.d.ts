@@ -78,6 +78,69 @@ declare namespace ut {
 }
 declare var UT_ASSETS: Object;
 declare namespace game{
+    class GraConf extends ut.Component {
+        constructor();
+        gra: number;
+        pi: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: GraConf): GraConf;
+        static _toPtr(p: number, v: GraConf): void;
+        static _tempHeapPtr(v: GraConf): number;
+        static _dtorFn(v: GraConf): void;
+    }
+    class Counter extends ut.Component {
+        constructor();
+        frame: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Counter): Counter;
+        static _toPtr(p: number, v: Counter): void;
+        static _tempHeapPtr(v: Counter): number;
+        static _dtorFn(v: Counter): void;
+    }
+    class Movement extends ut.Component {
+        constructor();
+        speed: ut.Math.Vector2;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Movement): Movement;
+        static _toPtr(p: number, v: Movement): void;
+        static _tempHeapPtr(v: Movement): number;
+        static _dtorFn(v: Movement): void;
+    }
+    class SpeedBoost extends ut.Component {
+        constructor();
+        multiplier: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SpeedBoost): SpeedBoost;
+        static _toPtr(p: number, v: SpeedBoost): void;
+        static _tempHeapPtr(v: SpeedBoost): number;
+        static _dtorFn(v: SpeedBoost): void;
+    }
+    class Thing extends ut.Component {
+        constructor();
+        radius: number;
+        time: number;
+        speed: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Thing): Thing;
+        static _toPtr(p: number, v: Thing): void;
+        static _tempHeapPtr(v: Thing): number;
+        static _dtorFn(v: Thing): void;
+    }
 }
 declare namespace ut{
 }
@@ -215,7 +278,7 @@ declare namespace ut{
         [module: string]: any;
         game: {
             [data: string]: EntityGroupData;
-            NewEntityGroup: EntityGroupData;
+            Main: EntityGroupData;
         }
     }
 }
@@ -239,6 +302,14 @@ declare namespace ut.Core2D.layers{
     }
     class UI extends ut.Component {
         static _wrap(w: number, e: number): UI;
+        static readonly cid: number;
+    }
+    class Grid extends ut.Component {
+        static _wrap(w: number, e: number): Grid;
+        static readonly cid: number;
+    }
+    class Cutscene extends ut.Component {
+        static _wrap(w: number, e: number): Cutscene;
         static readonly cid: number;
     }
 }

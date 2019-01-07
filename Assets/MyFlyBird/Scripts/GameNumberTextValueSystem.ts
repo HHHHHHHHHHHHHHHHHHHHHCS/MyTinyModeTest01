@@ -1,7 +1,7 @@
 namespace gmae {
 	@ut.executeAfter(ut.Shared.UserCodeStart)
 	@ut.executeBefore(ut.Shared.UserCodeEnd)
-	//@ut.executeBefore(game.NumberTextRenderingSystem)
+	@ut.executeBefore(game.NumberTextRenderingSystem)
 	@ut.requiredComponents(game.NumberTextRenderer, game.GameConfigTextValue)
 	/** 游戏分数系统 */
 	export class GameNumberTextValueSystem extends ut.ComponentSystem {

@@ -1,91 +1,55 @@
 {
-    "Success": true,
-    "Diagnostics": [],
-    "Systems": [
+    "Success": false,
+    "Diagnostics": [
         {
-            "Name": "AutoDestroySystem",
-            "QualifiedName": "game.AutoDestroySystem",
-            "Description": "",
+            "Category": 1,
+            "Message": "Property 'en' does not exist on type 'typeof GameService'.",
             "Source": {
-                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
-                "Line": 8,
-                "Character": 14
-            },
-            "ExecuteAfter": [
-                "ut.Shared.UserCodeStart"
-            ],
-            "ExecuteBefore": [
-                "ut.Shared.UserCodeEnd"
-            ],
-            "RequiredComponents": [
-                "ut.Core2D.TransformNode",
-                "ut.Core2D.TransformLocalPosition",
-                "game.AutoDestory"
-            ]
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameManagerSystem.ts",
+                "Line": 18,
+                "Character": 19
+            }
         },
         {
-            "Name": "GameNumberTextValueSystem",
-            "QualifiedName": "gmae.GameNumberTextValueSystem",
-            "Description": "",
+            "Category": 1,
+            "Message": "Class 'NumberTextRenderingSystem' used before its declaration.",
             "Source": {
                 "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
-                "Line": 7,
-                "Character": 14
-            },
-            "ExecuteAfter": [
-                "ut.Shared.UserCodeStart"
-            ],
-            "ExecuteBefore": [
-                "ut.Shared.UserCodeEnd"
-            ],
-            "RequiredComponents": [
-                "game.NumberTextRenderer",
-                "game.GameConfigTextValue"
-            ]
+                "Line": 4,
+                "Character": 25
+            }
         }
     ],
+    "Systems": [],
     "Filters": [],
     "Behaviours": [],
     "Performance": [
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 120,
+            "Duration": 97,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 218,
+            "Duration": 170,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 1272,
-            "Steps": 13
+            "Duration": 839,
+            "Steps": 15
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 75,
-            "Steps": 2
-        },
-        {
-            "Key": "metadata",
-            "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 6,
+            "Duration": 72,
             "Steps": 2
         }
     ],
-    "SourceFiles": [
-        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AudioService.ts",
-        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
-        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
-        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameService.ts",
-        "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
-        "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
-    ],
-    "InputHash": "b045f6703c7eba06c9f7e866903166fe",
-    "GeneratedAt": "Sun Jan 06 2019 17:50:01 GMT+0800 (中国标准时间)"
+    "SourceFiles": [],
+    "InputHash": "0fd5f689a922fbb9277f9dc970256811",
+    "GeneratedAt": "Mon Jan 07 2019 18:01:29 GMT+0800 (中国标准时间)"
 }
