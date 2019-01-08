@@ -263,6 +263,7 @@ declare namespace game{
     }
     class Velocity extends ut.Component {
         constructor();
+        velocity: ut.Math.Vector2;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;

@@ -1,55 +1,173 @@
 {
-    "Success": false,
-    "Diagnostics": [
+    "Success": true,
+    "Diagnostics": [],
+    "Systems": [
         {
-            "Category": 1,
-            "Message": "Property 'en' does not exist on type 'typeof GameService'.",
+            "Name": "AutoDestroySystem",
+            "QualifiedName": "game.AutoDestroySystem",
+            "Description": "",
             "Source": {
-                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameManagerSystem.ts",
-                "Line": 18,
-                "Character": 19
-            }
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
+                "Line": 8,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformNode",
+                "ut.Core2D.TransformLocalPosition",
+                "game.AutoDestory"
+            ]
         },
         {
-            "Category": 1,
-            "Message": "Class 'NumberTextRenderingSystem' used before its declaration.",
+            "Name": "GameManagerSystem",
+            "QualifiedName": "game.GameManagerSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameManagerSystem.ts",
+                "Line": 5,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ]
+        },
+        {
+            "Name": "NumberTextRenderingSystem",
+            "QualifiedName": "game.NumberTextRenderingSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/NumberTextRenderingSystem.ts",
+                "Line": 10,
+                "Character": 14
+            },
+            "ExecuteBefore": [
+                "ut.Shared.RenderingFence"
+            ],
+            "RequiredComponents": [
+                "game.NumberTextRenderer"
+            ],
+            "OptionalComponents": [
+                "ut.Core2D.Sprite2DRenderer",
+                "ut.Core2D.TransformLocalPosition"
+            ]
+        },
+        {
+            "Name": "GameNumberTextValueSystem",
+            "QualifiedName": "game.GameNumberTextValueSystem",
+            "Description": "",
             "Source": {
                 "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
-                "Line": 4,
-                "Character": 25
-            }
+                "Line": 8,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd",
+                "game.NumberTextRenderingSystem"
+            ],
+            "RequiredComponents": [
+                "game.NumberTextRenderer",
+                "game.GameConfigTextValue"
+            ]
+        },
+        {
+            "Name": "GameOverSystem",
+            "QualifiedName": "game.GameOverSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameOverSystem.ts",
+                "Line": 6,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PlayerInput",
+                "ut.HitBox2D.HitBoxOverlapResults",
+                "ut.Core2D.Sprite2DSequencePlayer"
+            ]
+        },
+        {
+            "Name": "GravitySystem",
+            "QualifiedName": "game.GravitySystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GravitySystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Gravity",
+                "game.Velocity"
+            ]
         }
     ],
-    "Systems": [],
     "Filters": [],
     "Behaviours": [],
     "Performance": [
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 97,
+            "Duration": 441,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 170,
+            "Duration": 1121,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 839,
-            "Steps": 15
+            "Duration": 5280,
+            "Steps": 17
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 72,
+            "Duration": 369,
             "Steps": 2
+        },
+        {
+            "Key": "metadata",
+            "Description": "Time taken to reflect Tiny metadata from the compiled program",
+            "Duration": 41,
+            "Steps": 6
         }
     ],
-    "SourceFiles": [],
-    "InputHash": "0fd5f689a922fbb9277f9dc970256811",
-    "GeneratedAt": "Mon Jan 07 2019 18:01:29 GMT+0800 (中国标准时间)"
+    "SourceFiles": [
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AudioService.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/AutoDestroySystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameManagerSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/NumberTextRenderingSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameNumberTextValueSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameOverSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameService.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GravitySystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+    ],
+    "InputHash": "0291afae70b83be7d6adef26d341b663",
+    "GeneratedAt": "Tue Jan 08 2019 20:55:55 GMT+0800 (中国标准时间)"
 }

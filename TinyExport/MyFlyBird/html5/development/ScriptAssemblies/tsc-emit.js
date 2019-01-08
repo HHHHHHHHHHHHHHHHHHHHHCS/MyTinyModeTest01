@@ -75,6 +75,7 @@ var game;
 (function (game) {
     var GameManagerSystem = /** @class */ (function (_super) {
         __extends(GameManagerSystem, _super);
+        /** 游戏状态的管理 */
         function GameManagerSystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
@@ -90,11 +91,17 @@ var game;
                 }
                 case game.GameState.Tutorial: {
                     if (ut.Runtime.Input.getMouseButtonDown(0)) {
-                        game.GameService.en;
+                        game.GameService.EndTutorial(this.world);
                     }
                     break;
                 }
                 case game.GameState.Play: {
+                    break;
+                }
+                case game.GameState.GameOver: {
+                    if (ut.Runtime.Input.getMouseButtonDown(0)) {
+                        game.GameService.StartTutorial(this.world);
+                    }
                     break;
                 }
             }
@@ -102,13 +109,91 @@ var game;
         GameManagerSystem = __decorate([
             ut.executeAfter(ut.Shared.UserCodeStart),
             ut.executeBefore(ut.Shared.UserCodeEnd)
+            /** 游戏状态的管理 */
         ], GameManagerSystem);
         return GameManagerSystem;
     }(ut.ComponentSystem));
     game.GameManagerSystem = GameManagerSystem;
 })(game || (game = {}));
-var gmae;
-(function (gmae) {
+var game;
+(function (game) {
+    var NumberTextRenderingSystem = /** @class */ (function (_super) {
+        __extends(NumberTextRenderingSystem, _super);
+        /**
+         * 数字组件系统
+         * 用于显示分数
+         */
+        function NumberTextRenderingSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        NumberTextRenderingSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.NumberTextRenderer], function (numberTextRenderer) {
+                var value = numberTextRenderer.value;
+                var spacing = numberTextRenderer.spacing;
+                var alignment = numberTextRenderer.alignment;
+                var renderers = numberTextRenderer.renderers;
+                var characters = numberTextRenderer.characters;
+                var digits = [
+                    value % 10,
+                    Math.floor(value / 10),
+                    Math.floor(value / 100),
+                    Math.floor(value / 1000)
+                ];
+                var count = renderers.length;
+                //开头是0就别显示
+                for (var i = renderers.length - 1; i >= 1; i--) {
+                    if (digits[i] != 0) {
+                        break;
+                    }
+                    count = i;
+                }
+                var width = count * spacing; //间距
+                for (var i = 0; i < renderers.length; i++) {
+                    var renderer = renderers[i];
+                    //得到数据
+                    var spriteRenderer = _this.world.getComponentData(renderer, ut.Core2D.Sprite2DRenderer);
+                    var color = spriteRenderer.color;
+                    if (i < count) {
+                        color.a = 1;
+                        spriteRenderer.sprite = characters[digits[i]];
+                        var position = void 0;
+                        if (alignment == game.TextAligment.Center) {
+                            //从中间散开字
+                            position = new Vector3(spacing * (count - i - 1) - (width - spacing) * 0.5, 0, 0);
+                        }
+                        else {
+                            //从做到右排序
+                            position = new Vector3(spacing * -i, 0, 0);
+                        }
+                        //设置数据
+                        _this.world.setComponentData(renderer, new ut.Core2D.TransformLocalPosition(position));
+                    }
+                    else {
+                        //如果不是用就隐藏
+                        color.a = 0;
+                    }
+                    spriteRenderer.color = color;
+                    _this.world.setComponentData(renderer, spriteRenderer);
+                }
+            });
+        };
+        NumberTextRenderingSystem = __decorate([
+            ut.executeBefore(ut.Shared.RenderingFence),
+            ut.requiredComponents(game.NumberTextRenderer),
+            ut.optionalComponents(ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition)
+            /**
+             * 数字组件系统
+             * 用于显示分数
+             */
+        ], NumberTextRenderingSystem);
+        return NumberTextRenderingSystem;
+    }(ut.ComponentSystem));
+    game.NumberTextRenderingSystem = NumberTextRenderingSystem;
+})(game || (game = {}));
+/// <reference path="NumberTextRenderingSystem.ts" />
+var game;
+(function (game) {
     var GameNumberTextValueSystem = /** @class */ (function (_super) {
         __extends(GameNumberTextValueSystem, _super);
         /** 游戏分数系统 */
@@ -130,8 +215,39 @@ var gmae;
         ], GameNumberTextValueSystem);
         return GameNumberTextValueSystem;
     }(ut.ComponentSystem));
-    gmae.GameNumberTextValueSystem = GameNumberTextValueSystem;
-})(gmae || (gmae = {}));
+    game.GameNumberTextValueSystem = GameNumberTextValueSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var GameOverSystem = /** @class */ (function (_super) {
+        __extends(GameOverSystem, _super);
+        /** 游戏结束事件 */
+        function GameOverSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameOverSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var gameOver = false;
+            this.world.forEach([ut.Entity, game.PlayerInput, ut.HitBox2D.HitBoxOverlapResults, ut.Core2D.Sprite2DSequencePlayer], function (entity, input, overlap, sequencePlayer) {
+                _this.world.removeComponent(entity, game.PlayerInput);
+                sequencePlayer.paused = true;
+                game.AudioService.PlayAudioSourceByName(_this.world, 'audio_sfx_hit');
+                gameOver = true;
+            });
+            if (gameOver) {
+                game.GameService.GameOver(this.world);
+            }
+        };
+        GameOverSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.PlayerInput, ut.HitBox2D.HitBoxOverlapResults, ut.Core2D.Sprite2DSequencePlayer)
+            /** 游戏结束事件 */
+        ], GameOverSystem);
+        return GameOverSystem;
+    }(ut.ComponentSystem));
+    game.GameOverSystem = GameOverSystem;
+})(game || (game = {}));
 var game;
 (function (game) {
     /** 游戏的管理器 */
@@ -225,6 +341,7 @@ var game;
             spawner.paused = paused;
             world.setComponentData(entity, spawner);
         };
+        /** 设置教程 */
         GameService.EndTutorial = function (world) {
             ut.EntityGroup.destroyAll(world, this.tutorialScenenName);
             this.SetSpawnerPaused(world, false);
@@ -238,6 +355,29 @@ var game;
             gameConfig.state = game.GameState.Play;
             world.setConfigData(gameConfig);
             ut.EntityGroup.instantiate(world, this.scoreSceneName);
+        };
+        /** 游戏结束 */
+        GameService.GameOver = function (world) {
+            ut.EntityGroup.destroyAll(world, this.scoreSceneName);
+            this.SetSpawnerPaused(world, true);
+            var gameConfig = world.getConfigData(game.GameConfig);
+            gameConfig.currentScrollSpeed = 0;
+            if (gameConfig.currentScore > gameConfig.highScore) {
+                gameConfig.highScore = gameConfig.currentScore;
+            }
+            gameConfig.state = game.GameState.GameOver;
+            world.setConfigData(gameConfig);
+            var gameOver = world.getEntityByName("Image_GameOver");
+            var transform = world.getComponentData(gameOver, ut.Core2D.TransformLocalPosition);
+            var end = transform.position;
+            var start = new Vector3(end.x, end.y + 1.0, end.z);
+            ut.Tweens.TweenService.addTween(world, gameOver, ut.Core2D.TransformLocalPosition.position, start, end, 1.35, 0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutBounce, true);
+            ut.Tweens.TweenService.addTween(world, gameOver, ut.Core2D.Sprite2DRenderer.color.a, 0, 1, 0.45, 0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutBounce, true);
+            var board = world.getEntityByName("Image_ScoreBoard");
+            transform = world.getComponentData(board, ut.Core2D.TransformLocalPosition);
+            end = transform.position;
+            start = new Vector3(end.x, end.y - 1, end.z);
+            ut.Tweens.TweenService.addTween(world, board, ut.Core2D.TransformLocalPosition.position, start, end, 0.35, 0.0, ut.Core2D.LoopMode.Once, ut.Tweens.TweenFunc.OutQuad, true);
         };
         /**
          * 单位的名字
@@ -258,79 +398,31 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
-    var NumberTextRenderingSystem = /** @class */ (function (_super) {
-        __extends(NumberTextRenderingSystem, _super);
-        /**
-         * 数字组件系统
-         * 用于显示分数
-         */
-        function NumberTextRenderingSystem() {
+    var GravitySystem = /** @class */ (function (_super) {
+        __extends(GravitySystem, _super);
+        /** 重力事件 */
+        function GravitySystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        NumberTextRenderingSystem.prototype.OnUpdate = function () {
-            var _this = this;
-            this.world.forEach([game.NumberTextRenderer], function (numberTextRenderer) {
-                var value = numberTextRenderer.value;
-                var spacing = numberTextRenderer.spacing;
-                var alignment = numberTextRenderer.alignment;
-                var renderers = numberTextRenderer.renderers;
-                var characters = numberTextRenderer.characters;
-                var digits = [
-                    value % 10,
-                    Math.floor(value / 10),
-                    Math.floor(value / 100),
-                    Math.floor(value / 1000)
-                ];
-                var count = renderers.length;
-                //开头是0就别显示
-                for (var i = renderers.length - 1; i >= 1; i--) {
-                    if (digits[i] != 0) {
-                        break;
-                    }
-                    count = i;
-                }
-                var width = count * spacing; //间距
-                for (var i = 0; i < renderers.length; i++) {
-                    var renderer = renderers[i];
-                    //得到数据
-                    var spriteRenderer = _this.world.getComponentData(renderer, ut.Core2D.Sprite2DRenderer);
-                    var color = spriteRenderer.color;
-                    if (i < count) {
-                        color.a = 1;
-                        spriteRenderer.sprite = characters[digits[i]];
-                        var position = void 0;
-                        if (alignment == game.TextAligment.Center) {
-                            //从中间散开字
-                            position = new Vector3(spacing * (count - i - 1) - (width - spacing) * 0.5, 0, 0);
-                        }
-                        else {
-                            //从做到右排序
-                            position = new Vector3(spacing * -i, 0, 0);
-                        }
-                        //设置数据
-                        _this.world.setComponentData(renderer, new ut.Core2D.TransformLocalPosition(position));
-                    }
-                    else {
-                        //如果不是用就隐藏
-                        color.a = 0;
-                    }
-                    spriteRenderer.color = color;
-                    _this.world.setComponentData(renderer, spriteRenderer);
-                }
+        GravitySystem.prototype.OnUpdate = function () {
+            var dt = this.scheduler.deltaTime();
+            this.world.forEach([game.Gravity, game.Velocity], function (gravity, velocity) {
+                var v = velocity.velocity;
+                var g = gravity.gravity;
+                v.x += g.x * dt;
+                v.y += g.y * dt;
+                velocity.velocity = v;
             });
         };
-        NumberTextRenderingSystem = __decorate([
-            ut.executeBefore(ut.Shared.RenderingFence),
-            ut.requiredComponents(game.NumberTextRenderer),
-            ut.optionalComponents(ut.Core2D.Sprite2DRenderer, ut.Core2D.TransformLocalPosition)
-            /**
-             * 数字组件系统
-             * 用于显示分数
-             */
-        ], NumberTextRenderingSystem);
-        return NumberTextRenderingSystem;
+        GravitySystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.Gravity, game.Velocity)
+            /** 重力事件 */
+        ], GravitySystem);
+        return GravitySystem;
     }(ut.ComponentSystem));
-    game.NumberTextRenderingSystem = NumberTextRenderingSystem;
+    game.GravitySystem = GravitySystem;
 })(game || (game = {}));
 var ut;
 (function (ut) {

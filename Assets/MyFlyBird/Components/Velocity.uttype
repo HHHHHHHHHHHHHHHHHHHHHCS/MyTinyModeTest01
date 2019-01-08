@@ -6,6 +6,13 @@
     "Unlisted": false,
     "Visibility": 0,
     "TypeCode": "Component",
+    "Fields": [{
+        "Id": "7c975b5bcec0423eae0988abe8af24d5",
+        "Name": "velocity",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0
+    }],
     "DefaultValue": {
         "Type": { "Id": "060da4ffbf104f0a994c7139dc90cf0b", "Name": "Velocity" }
     }

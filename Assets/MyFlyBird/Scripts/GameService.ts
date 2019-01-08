@@ -142,6 +142,7 @@ namespace game {
 			world.setComponentData(entity, spawner)
 		}
 
+		/** 设置教程 */
 		public static EndTutorial(world: ut.World) {
 			ut.EntityGroup.destroyAll(world, this.tutorialScenenName)
 
@@ -161,6 +162,74 @@ namespace game {
 			world.setConfigData(gameConfig)
 
 			ut.EntityGroup.instantiate(world, this.scoreSceneName)
+		}
+
+
+		/** 游戏结束 */
+		public static GameOver(world: ut.World) {
+			ut.EntityGroup.destroyAll(world, this.scoreSceneName)
+
+			this.SetSpawnerPaused(world, true)
+
+			let gameConfig = world.getConfigData(game.GameConfig)
+
+			gameConfig.currentScrollSpeed = 0
+
+			if (gameConfig.currentScore > gameConfig.highScore) {
+				gameConfig.highScore = gameConfig.currentScore
+			}
+
+			gameConfig.state = game.GameState.GameOver
+
+			world.setConfigData(gameConfig)
+
+			let gameOver = world.getEntityByName("Image_GameOver")
+			let transform = world.getComponentData(gameOver, ut.Core2D.TransformLocalPosition)
+			let end = transform.position
+			let start = new Vector3(end.x, end.y + 1.0, end.z)
+
+			ut.Tweens.TweenService.addTween(
+				world,
+				gameOver,
+				ut.Core2D.TransformLocalPosition.position,
+				start,
+				end,
+				1.35,
+				0,
+				ut.Core2D.LoopMode.Once,
+				ut.Tweens.TweenFunc.OutBounce,
+				true
+			)
+
+			ut.Tweens.TweenService.addTween(
+				world,
+				gameOver,
+				ut.Core2D.Sprite2DRenderer.color.a,
+				0,
+				1,
+				0.45,
+				0,
+				ut.Core2D.LoopMode.Once,
+				ut.Tweens.TweenFunc.OutBounce,
+				true
+			)
+
+			let board = world.getEntityByName("Image_ScoreBoard")
+			transform = world.getComponentData(board, ut.Core2D.TransformLocalPosition)
+			end = transform.position
+			start = new Vector3(end.x, end.y - 1, end.z)
+			ut.Tweens.TweenService.addTween(
+				world,
+				board,
+				ut.Core2D.TransformLocalPosition.position,
+				start,
+				end,
+				0.35,
+				0.0,
+				ut.Core2D.LoopMode.Once,
+				ut.Tweens.TweenFunc.OutQuad,
+				true
+			)
 		}
 	}
 }
