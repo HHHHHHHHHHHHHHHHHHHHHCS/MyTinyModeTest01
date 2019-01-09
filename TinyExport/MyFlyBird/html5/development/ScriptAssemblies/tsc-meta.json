@@ -120,6 +120,83 @@
                 "game.Gravity",
                 "game.Velocity"
             ]
+        },
+        {
+            "Name": "GroundCollisionSystem",
+            "QualifiedName": "game.GroundCollisionSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GroundCollisionSystem.ts",
+                "Line": 8,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Gravity",
+                "ut.HitBox2D.HitBoxOverlapResults"
+            ]
+        },
+        {
+            "Name": "PlayerInputSystem",
+            "QualifiedName": "game.PlayerInputSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/PlayerInputSystem.ts",
+                "Line": 6,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PlayerInput",
+                "game.Velocity"
+            ]
+        },
+        {
+            "Name": "ScrollerSystem",
+            "QualifiedName": "game.ScrollerSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/ScrollerSystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformLocalPosition",
+                "game.Scroller"
+            ]
+        },
+        {
+            "Name": "RepeatingBackgroundSystem",
+            "QualifiedName": "game.RepeatingBackgroundSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/RepeatingBackgroundSystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "game.ScrollerSystem"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.TransformLocalPosition",
+                "game.RepeatingBackground"
+            ]
         }
     ],
     "Filters": [],
@@ -128,32 +205,32 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 441,
+            "Duration": 96,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 1121,
+            "Duration": 177,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 5280,
-            "Steps": 17
+            "Duration": 910,
+            "Steps": 21
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 369,
+            "Duration": 135,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 41,
-            "Steps": 6
+            "Duration": 16,
+            "Steps": 10
         }
     ],
     "SourceFiles": [
@@ -165,9 +242,13 @@
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameOverSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameService.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GravitySystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GroundCollisionSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/PlayerInputSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/ScrollerSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/RepeatingBackgroundSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "0291afae70b83be7d6adef26d341b663",
-    "GeneratedAt": "Tue Jan 08 2019 20:55:55 GMT+0800 (中国标准时间)"
+    "InputHash": "107363d12925bb195d83bfc2e5c1daf4",
+    "GeneratedAt": "Wed Jan 09 2019 21:32:46 GMT+0800 (中国标准时间)"
 }

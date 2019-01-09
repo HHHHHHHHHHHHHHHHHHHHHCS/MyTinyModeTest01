@@ -424,6 +424,131 @@ var game;
     }(ut.ComponentSystem));
     game.GravitySystem = GravitySystem;
 })(game || (game = {}));
+var game;
+(function (game) {
+    var GroundCollisionSystem = /** @class */ (function (_super) {
+        __extends(GroundCollisionSystem, _super);
+        /** 碰到下地板的时候 */
+        function GroundCollisionSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GroundCollisionSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([ut.Entity, game.Velocity, ut.HitBox2D.HitBoxOverlapResults], function (entity, velocity, overlap) {
+                var grounded = false;
+                var overLaps = overlap.overlaps;
+                for (var _i = 0, overLaps_1 = overLaps; _i < overLaps_1.length; _i++) {
+                    var item = overLaps_1[_i];
+                    var other = item.otherEntity;
+                    if (_this.world.hasComponent(other, game.Ground)) {
+                        grounded = true;
+                        break;
+                    }
+                }
+                if (grounded) {
+                    _this.world.removeComponent(entity, game.Velocity);
+                }
+                _this.world.usingComponentData(entity, [ut.Core2D.TransformLocalPosition], function (position) {
+                    var p = position.position;
+                    if (p.y < -0.95) {
+                        p.y = -0.95;
+                    }
+                });
+            });
+        };
+        GroundCollisionSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.Gravity, ut.HitBox2D.HitBoxOverlapResults)
+            /** 碰到下地板的时候 */
+        ], GroundCollisionSystem);
+        return GroundCollisionSystem;
+    }(ut.ComponentSystem));
+    game.GroundCollisionSystem = GroundCollisionSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var PlayerInputSystem = /** @class */ (function (_super) {
+        __extends(PlayerInputSystem, _super);
+        /** 玩家输入系统 */
+        function PlayerInputSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PlayerInputSystem.prototype.OnUpdate = function () {
+            if (this.world.getConfigData(game.GameConfig).state != game.GameState.Play) {
+                return;
+            }
+            if (!ut.Runtime.Input.getMouseButton(0)) {
+                return;
+            }
+            game.AudioService.PlayAudioSourceByName(this.world, "audio_sfx_wing");
+            this.world.forEach([ut.Entity, game.PlayerInput, game.Velocity], function (eneity, input, velocity) {
+                velocity.velocity = new ut.Math.Vector2(0, input.force);
+            });
+        };
+        PlayerInputSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.PlayerInput, game.Velocity)
+            /** 玩家输入系统 */
+        ], PlayerInputSystem);
+        return PlayerInputSystem;
+    }(ut.ComponentSystem));
+    game.PlayerInputSystem = PlayerInputSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var ScrollerSystem = /** @class */ (function (_super) {
+        __extends(ScrollerSystem, _super);
+        /** 移动背景 */
+        function ScrollerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ScrollerSystem.prototype.OnUpdate = function () {
+            var gameConfig = this.world.getConfigData(game.GameConfig);
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.Scroller], function (position, scroller) {
+                var p = position.position;
+                p.x -= gameConfig.currentScrollSpeed;
+                position.position = p;
+            });
+        };
+        ScrollerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(ut.Core2D.TransformLocalPosition, game.Scroller)
+            /** 移动背景 */
+        ], ScrollerSystem);
+        return ScrollerSystem;
+    }(ut.ComponentSystem));
+    game.ScrollerSystem = ScrollerSystem;
+})(game || (game = {}));
+/// <reference path="ScrollerSystem.ts" />
+var game;
+(function (game) {
+    var RepeatingBackgroundSystem = /** @class */ (function (_super) {
+        __extends(RepeatingBackgroundSystem, _super);
+        /** 循环背景 */
+        function RepeatingBackgroundSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        RepeatingBackgroundSystem.prototype.OnUpdate = function () {
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.RepeatingBackground], function (position, background) {
+                var pos = position.position;
+                if (pos.x < background.threshold) {
+                    pos.x += background.distance;
+                }
+                position.position = pos;
+            });
+        };
+        RepeatingBackgroundSystem = __decorate([
+            ut.executeAfter(game.ScrollerSystem),
+            ut.requiredComponents(ut.Core2D.TransformLocalPosition, game.RepeatingBackground)
+            /** 循环背景 */
+        ], RepeatingBackgroundSystem);
+        return RepeatingBackgroundSystem;
+    }(ut.ComponentSystem));
+    game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
+})(game || (game = {}));
 var ut;
 (function (ut) {
     var EntityGroup = /** @class */ (function () {
