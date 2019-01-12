@@ -469,7 +469,7 @@
     "Static": false,
     "Layer": 0,
     "Components": [{
-        "Type": { "Id": "64eb8a42be114ae3a1620185b1827016", "Name": "EnemeySpawner" },
+        "Type": { "Id": "64eb8a42be114ae3a1620185b1827016", "Name": "PipeSpawner" },
         "Properties": {
             "time": 1.5,
             "delay": 1.5,

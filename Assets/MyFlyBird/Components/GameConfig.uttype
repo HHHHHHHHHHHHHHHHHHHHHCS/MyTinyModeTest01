@@ -11,7 +11,7 @@
         "Name": "state",
         "FieldType": { "Id": "a5cf8d23bce340de80af068c57792528", "Name": "GameState" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }, {
         "Id": "40aee62a314c4d74848194b91f293668",
         "Name": "scrollSpeed",
@@ -29,19 +29,19 @@
         "Name": "currentScore",
         "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }, {
         "Id": "27c3801b5e5f4799b8d61957cd6d3f3e",
         "Name": "highScore",
         "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }, {
         "Id": "128b3b18bc0741d0876caddc2469d060",
         "Name": "currentScrollSpeed",
         "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
         "Array": false,
-        "Visibility": 0
+        "Visibility": 1
     }],
     "DefaultValue": {
         "Type": { "Id": "80774685b0d24c8bb461aa9ea04b68a1", "Name": "GameConfig" }

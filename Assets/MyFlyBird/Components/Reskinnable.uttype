@@ -6,6 +6,13 @@
     "Unlisted": false,
     "Visibility": 0,
     "TypeCode": "Component",
+    "Fields": [{
+        "Id": "78d2eb4757464ee289f8a106ef1cdbd1",
+        "Name": "theme",
+        "FieldType": { "Id": "1cdce2aafdf24de488f8f2382e979ccd", "Name": "SkinType" },
+        "Array": false,
+        "Visibility": 0
+    }],
     "DefaultValue": {
         "Type": { "Id": "19a9098427924a1b9a06ddeff48b1866", "Name": "Reskinnable" }
     }

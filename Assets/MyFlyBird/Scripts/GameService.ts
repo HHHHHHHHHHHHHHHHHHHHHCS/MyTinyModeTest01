@@ -107,7 +107,7 @@ namespace game {
 
 			//控制图片的显示
 			ut.Tweens.TweenService.addTween(world,
-				world.getEntityByName("Image_Controls"),
+				world.getEntityByName(`Image_Controls`),
 				ut.Core2D.Shape2DRenderer.color.a,
 				0, 1,
 				4,
@@ -137,7 +137,7 @@ namespace game {
          */
 		public static SetSpawnerPaused(world: ut.World, paused: boolean) {
 			let entity = world.getEntityByName(this.spawnerEntityName)
-			let spawner = world.getComponentData(entity, game.EnemeySpawner)
+			let spawner = world.getComponentData(entity, game.PipeSpawner)
 			spawner.paused = paused
 			world.setComponentData(entity, spawner)
 		}

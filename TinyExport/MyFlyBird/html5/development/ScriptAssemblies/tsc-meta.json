@@ -142,6 +142,28 @@
             ]
         },
         {
+            "Name": "PipeSpacingSystem",
+            "QualifiedName": "game.PipeSpacingSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/PipeSpacingSystem.ts",
+                "Line": 8,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.Spacing"
+            ],
+            "OptionalComponents": [
+                "ut.Core2D.TransformLocalPosition"
+            ]
+        },
+        {
             "Name": "PlayerInputSystem",
             "QualifiedName": "game.PlayerInputSystem",
             "Description": "",
@@ -197,6 +219,89 @@
                 "ut.Core2D.TransformLocalPosition",
                 "game.RepeatingBackground"
             ]
+        },
+        {
+            "Name": "ScorePointSystem",
+            "QualifiedName": "game.ScorePointSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/ScorePointSystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.ScorePoint"
+            ],
+            "OptionalComponents": [
+                "ut.Audio.AudioSource"
+            ]
+        },
+        {
+            "Name": "SpawnerSystem",
+            "QualifiedName": "game.SpawnerSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/SpawnerSystem.ts",
+                "Line": 9,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart",
+                "game.RepeatingBackgroundSystem"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PipeSpawner"
+            ]
+        },
+        {
+            "Name": "SkinSystem",
+            "QualifiedName": "game.SkinSystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/SkinSystem.ts",
+                "Line": 8,
+                "Character": 15
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart",
+                "game.SpawnerSystem"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "ut.Core2D.Sprite2DRenderer",
+                "ut.Core2D.Sprite2DSequence"
+            ]
+        },
+        {
+            "Name": "VelocitySystem",
+            "QualifiedName": "game.VelocitySystem",
+            "Description": "",
+            "Source": {
+                "File": "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/VelocitySystem.ts",
+                "Line": 7,
+                "Character": 14
+            },
+            "ExecuteAfter": [
+                "ut.Shared.UserCodeStart"
+            ],
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeEnd"
+            ],
+            "RequiredComponents": [
+                "game.PlayerInput",
+                "game.Velocity"
+            ]
         }
     ],
     "Filters": [],
@@ -205,32 +310,32 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 96,
+            "Duration": 122,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 177,
+            "Duration": 259,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 910,
-            "Steps": 21
+            "Duration": 1082,
+            "Steps": 26
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 135,
+            "Duration": 185,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 16,
-            "Steps": 10
+            "Duration": 33,
+            "Steps": 15
         }
     ],
     "SourceFiles": [
@@ -243,12 +348,17 @@
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GameService.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GravitySystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/GroundCollisionSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/PipeSpacingSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/PlayerInputSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/ScrollerSystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/RepeatingBackgroundSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/ScorePointSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/SpawnerSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/SkinSystem.ts",
+        "E:/MyUnityProject/MyTinyModeTest01/Assets/MyFlyBird/Scripts/VelocitySystem.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "E:/MyUnityProject/MyTinyModeTest01/Library/PackageCache/com.unity.tiny@0.13.2-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "107363d12925bb195d83bfc2e5c1daf4",
-    "GeneratedAt": "Wed Jan 09 2019 21:32:46 GMT+0800 (中国标准时间)"
+    "InputHash": "51d502bbf6dbdb5e40458042801d3e1b",
+    "GeneratedAt": "Sat Jan 12 2019 18:06:42 GMT+0800 (中国标准时间)"
 }

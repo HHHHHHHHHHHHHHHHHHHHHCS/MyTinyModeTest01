@@ -337,7 +337,7 @@ var game;
          */
         GameService.SetSpawnerPaused = function (world, paused) {
             var entity = world.getEntityByName(this.spawnerEntityName);
-            var spawner = world.getComponentData(entity, game.EnemeySpawner);
+            var spawner = world.getComponentData(entity, game.PipeSpawner);
             spawner.paused = paused;
             world.setComponentData(entity, spawner);
         };
@@ -468,6 +468,36 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
+    var PipeSpacingSystem = /** @class */ (function (_super) {
+        __extends(PipeSpacingSystem, _super);
+        /** 管道系统 */
+        function PipeSpacingSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PipeSpacingSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([game.Spacing], function (spacing) {
+                var topPosition = _this.world.getComponentData(spacing.top, ut.Core2D.TransformLocalPosition);
+                var botPosition = _this.world.getComponentData(spacing.bottom, ut.Core2D.TransformLocalPosition);
+                topPosition.position = new Vector3(0, spacing.spacing * 0.5, 0);
+                botPosition.position = new Vector3(0, -spacing.spacing * 0.5, 0);
+                _this.world.setComponentData(spacing.top, topPosition);
+                _this.world.setComponentData(spacing.bottom, botPosition);
+            });
+        };
+        PipeSpacingSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.Spacing),
+            ut.optionalComponents(ut.Core2D.TransformLocalPosition)
+            /** 管道系统 */
+        ], PipeSpacingSystem);
+        return PipeSpacingSystem;
+    }(ut.ComponentSystem));
+    game.PipeSpacingSystem = PipeSpacingSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
     var PlayerInputSystem = /** @class */ (function (_super) {
         __extends(PlayerInputSystem, _super);
         /** 玩家输入系统 */
@@ -548,6 +578,196 @@ var game;
         return RepeatingBackgroundSystem;
     }(ut.ComponentSystem));
     game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var ScorePointSystem = /** @class */ (function (_super) {
+        __extends(ScorePointSystem, _super);
+        /** 游戏得分系统 */
+        function ScorePointSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ScorePointSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var player = this.world.getEntityByName("Player");
+            if (player.isNone()) {
+                return;
+            }
+            var gameConfig = this.world.getConfigData(game.GameConfig);
+            var playerPosition = ut.Core2D.TransformService.computeWorldPosition(this.world, player);
+            this.world.forEach([ut.Entity, game.ScorePoint, ut.Core2D.TransformObjectToWorld], function (entity, scorePoint, o2w) {
+                var position = new Vector3(o2w.matrix.elements[12], o2w.matrix.elements[13], o2w.matrix.elements[14]);
+                if (position.x < playerPosition.x) {
+                    gameConfig.currentScore += scorePoint.value;
+                    _this.world.removeComponent(entity, game.ScorePoint);
+                    game.AudioService.PlayAudioSourceByName(_this.world, "audio_sfx_point");
+                }
+            });
+            this.world.setConfigData(gameConfig);
+        };
+        ScorePointSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.ScorePoint),
+            ut.optionalComponents(ut.Audio.AudioSource)
+            /** 游戏得分系统 */
+        ], ScorePointSystem);
+        return ScorePointSystem;
+    }(ut.ComponentSystem));
+    game.ScorePointSystem = ScorePointSystem;
+})(game || (game = {}));
+/// <reference path="RepeatingBackgroundSystem.ts"/>
+var game;
+(function (game) {
+    var SpawnerSystem = /** @class */ (function (_super) {
+        __extends(SpawnerSystem, _super);
+        /** 生产敌人的系统 */
+        function SpawnerSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SpawnerSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var spawnCount = -1; //生产几个
+            var pipeSpawner;
+            this.world.forEach([game.PipeSpawner], function (spawner) {
+                if (spawner.paused) {
+                    return;
+                }
+                pipeSpawner = spawner;
+                var time = spawner.time;
+                var delay = spawner.delay;
+                time += _this.scheduler.deltaTime();
+                if (time > delay) {
+                    time -= delay;
+                    spawnCount += 1;
+                }
+                spawner.time = time;
+            });
+            for (var i = 0; i < spawnCount; i++) {
+                var spawner = pipeSpawner;
+                var instance = ut.EntityGroup.instantiate(this.world, "game.Pipes")[0];
+                var pipe = ut.Core2D.TransformService.getChild(this.world, instance, 0);
+                var transform = new ut.Core2D.TransformLocalPosition(new Vector3(spawner.distance, Math.random() * spawner.maxHeight + spawner.minHeight, 0));
+                if (this.world.hasComponent(pipe, ut.Core2D.TransformLocalPosition)) {
+                    this.world.setComponentData(pipe, transform);
+                }
+                else {
+                    this.world.addComponentData(pipe, transform);
+                }
+            }
+        };
+        SpawnerSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.executeAfter(game.RepeatingBackgroundSystem),
+            ut.requiredComponents(game.PipeSpawner)
+            /** 生产敌人的系统 */
+        ], SpawnerSystem);
+        return SpawnerSystem;
+    }(ut.ComponentSystem));
+    game.SpawnerSystem = SpawnerSystem;
+})(game || (game = {}));
+/// <reference path="SpawnerSystem.ts" />
+var game;
+(function (game) {
+    var SkinSystem = /** @class */ (function (_super) {
+        __extends(SkinSystem, _super);
+        function SkinSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SkinSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            var gameConfig = this.world.getConfigData(game.GameConfig);
+            var skinConfig = this.world.getConfigData(game.SkinConfig);
+            var change = false;
+            // change theme with user keyboard input
+            if (ut.Runtime.Input.getKeyUp(ut.Core2D.KeyCode.S)) {
+                change = true;
+            }
+            // change theme every four points
+            if (gameConfig.currentScore != 0 && gameConfig.currentScore % 4 == 0) {
+                change = true;
+            }
+            var themeIndex = gameConfig.currentScore % 8;
+            // apply the theme change to the game config
+            if (themeIndex >= 4) {
+                skinConfig.theme = game.SkinType.Night;
+            }
+            else {
+                skinConfig.theme = game.SkinType.Day;
+            }
+            this.world.setConfigData(skinConfig);
+            // update the theme for reskinnable entities
+            // get the skin theme (string value) from the GameManager entity
+            var theme = skinConfig.theme;
+            var themeName = Object.keys(game.SkinType).filter(function (value) { return game.SkinType[value] === theme; });
+            // Update Sprite2DRenderer sprites
+            this.world.forEach([game.Reskinnable, ut.Core2D.Sprite2DRenderer], function (reskinnable, sprite2drenderer) {
+                if (reskinnable.theme == theme) {
+                    return;
+                }
+                var spriteEntity = sprite2drenderer.sprite;
+                var imgPath = _this.world.getEntityName(spriteEntity);
+                // variation of a sprite is contained in another Sprite Atlas
+                // e.g. "assets/sprites/Day/bg" and "assets/sprites/Night/bg"
+                var path = "assets/sprites/" + themeName + imgPath.substring(imgPath.lastIndexOf('/'));
+                sprite2drenderer.sprite = _this.world.getEntityByName(path);
+            });
+            // Update Sprite2DSequence sprites
+            this.world.forEach([game.Reskinnable, ut.Core2D.Sprite2DSequence], function (reskinnable, sprite2dsequence) {
+                if (reskinnable.theme == theme) {
+                    return;
+                }
+                var sprites = Array();
+                sprite2dsequence.sprites.forEach(function (sprite) {
+                    var imgPath = _this.world.getEntityName(sprite);
+                    // variation of a sprite is contained in another Sprite Atlas
+                    // e.g. "assets/sprites/Day/bg" and "assets/sprites/Night/bg"
+                    var path = "assets/sprites/" + themeName + imgPath.substring(imgPath.lastIndexOf('/'));
+                    sprites.push(_this.world.getEntityByName(path));
+                });
+                sprite2dsequence.sprites = sprites;
+            });
+            this.world.forEach([game.Reskinnable], function (reskinnable) {
+                reskinnable.theme = theme;
+            });
+        };
+        SkinSystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.executeAfter(game.SpawnerSystem),
+            ut.requiredComponents(ut.Core2D.Sprite2DRenderer, ut.Core2D.Sprite2DSequence)
+        ], SkinSystem);
+        return SkinSystem;
+    }(ut.ComponentSystem));
+    game.SkinSystem = SkinSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var VelocitySystem = /** @class */ (function (_super) {
+        __extends(VelocitySystem, _super);
+        /** 玩家力移动系统 */
+        function VelocitySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        VelocitySystem.prototype.OnUpdate = function () {
+            this.world.forEach([ut.Core2D.TransformLocalPosition, game.Velocity], function (transform, velocity) {
+                var p = transform.position;
+                var v = velocity.velocity;
+                p.x += v.x;
+                p.y += v.y;
+                transform.position = p;
+            });
+        };
+        VelocitySystem = __decorate([
+            ut.executeAfter(ut.Shared.UserCodeStart),
+            ut.executeBefore(ut.Shared.UserCodeEnd),
+            ut.requiredComponents(game.PlayerInput, game.Velocity)
+            /** 玩家力移动系统 */
+        ], VelocitySystem);
+        return VelocitySystem;
+    }(ut.ComponentSystem));
+    game.VelocitySystem = VelocitySystem;
 })(game || (game = {}));
 var ut;
 (function (ut) {

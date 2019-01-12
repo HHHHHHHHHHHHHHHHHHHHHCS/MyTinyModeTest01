@@ -120,23 +120,6 @@ declare namespace game{
         static _tempHeapPtr(v: AutoDestory): number;
         static _dtorFn(v: AutoDestory): void;
     }
-    class EnemeySpawner extends ut.Component {
-        constructor();
-        time: number;
-        delay: number;
-        paused: boolean;
-        distance: number;
-        minHeight: number;
-        maxHeight: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: EnemeySpawner): EnemeySpawner;
-        static _toPtr(p: number, v: EnemeySpawner): void;
-        static _tempHeapPtr(v: EnemeySpawner): number;
-        static _dtorFn(v: EnemeySpawner): void;
-    }
     class GameConfigTextValue extends ut.Component {
         constructor();
         key: string;
@@ -188,6 +171,23 @@ declare namespace game{
         static _tempHeapPtr(v: NumberTextRenderer): number;
         static _dtorFn(v: NumberTextRenderer): void;
     }
+    class PipeSpawner extends ut.Component {
+        constructor();
+        time: number;
+        delay: number;
+        paused: boolean;
+        distance: number;
+        minHeight: number;
+        maxHeight: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: PipeSpawner): PipeSpawner;
+        static _toPtr(p: number, v: PipeSpawner): void;
+        static _tempHeapPtr(v: PipeSpawner): number;
+        static _dtorFn(v: PipeSpawner): void;
+    }
     class PlayerInput extends ut.Component {
         constructor();
         force: number;
@@ -215,6 +215,7 @@ declare namespace game{
     }
     class Reskinnable extends ut.Component {
         constructor();
+        theme: SkinType;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
@@ -430,7 +431,7 @@ declare namespace ut{
             GameScene: EntityGroupData;
             Pipes: EntityGroupData;
             Score: EntityGroupData;
-            Turorial: EntityGroupData;
+            Tutorial: EntityGroupData;
         }
     }
 }
